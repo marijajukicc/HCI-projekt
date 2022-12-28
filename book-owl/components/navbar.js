@@ -27,7 +27,7 @@ const NavBar = () => {
                 ))}
             </div>
             <div className='inline-flex gap-5'>
-                <Link href="/shoppingCart" passHref>
+                <Link href="/shoppingCart">
                     <Image
                         src={Cart}
                         width={30}
@@ -36,7 +36,7 @@ const NavBar = () => {
                         className='hover:scale-125'
                     />
                 </Link>
-                <Link href="/login" passHref>
+                <Link href="/login">
                     <Image
                         src={Login}
                         width={30}

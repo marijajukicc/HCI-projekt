@@ -17,7 +17,7 @@ const Header = () => {
                                 height={70}
                                 alt="Logo"
                                 />
-                            <p className='font-pacifico text-shingle-fawn break-words'>BOOK <br></br> OWL</p>
+                            <p className='font-pacifico text-shingle-fawn'>BOOK <br></br> OWL</p>
                         </div>
                     </Link>
                     <NavBar />
