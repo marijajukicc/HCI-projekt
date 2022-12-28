@@ -17,7 +17,7 @@ const NavBar = () => {
                     <Link href={path} key={label} passHref>
                         <li
                             key={label}
-                            className={`px-5 text-l uppercase whitespace-nowrap hover:font-bold hover:scale-110 cursor-pointer ${
+                            className={`px-5 text-xl uppercase whitespace-nowrap hover:font-bold hover:scale-110 cursor-pointer ${
                                 currentPage === path ? 'font-bold underline decoration-2' : ''
                             }`}
                             >
