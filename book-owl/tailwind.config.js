@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       fontFamily: {
         'della-respira': ['"Della Respira"'],
+        'pacifico':['"Pacifico"'],
       },
       colors: {
         'swamp-green': '#9dab7b',

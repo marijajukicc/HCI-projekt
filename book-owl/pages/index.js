@@ -1,10 +1,11 @@
+import HeaderFooterLayout from '../Layouts/HeaderFooterLayout';
 
 const Home = () => {
   return (
     <>
-        <div>
-          Home
-        </div>
+        <HeaderFooterLayout>
+          <p>Home</p>
+        </HeaderFooterLayout>
     </>
   );
 };
