@@ -1,15 +1,8 @@
-import Link from 'next/link';
-
 import HeaderFooterLayout from '../layouts/HeaderFooterLayout';
 import Background from '../components/background';
 import Books from '../components/books';
 
 const Home = () => {
-
-  function handleClick() {
-    <Link href="/" passHref></Link>
-  }
-
   return (
     <>
         <HeaderFooterLayout>
