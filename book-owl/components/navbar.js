@@ -4,12 +4,14 @@ import Image from 'next/image';
 
 import { navigationItems } from "../constants/navbar";
 import Cart from "../public/shopping-cart.png";
+import CartActive from "../public/shopping-cart2.png";
 import Login from '../public/account.png';
+import LoginActive from '../public/account2.png';
 
 const NavBar = () => {
     const router = useRouter();
     const currentPage = router.pathname;
-
+    
     return (
         <nav className='flex-grow flex justify-between text-shingle-fawn'>
             <div className='flex py-0.5 list-none'>
@@ -27,22 +29,22 @@ const NavBar = () => {
                 ))}
             </div>
             <div className='inline-flex gap-5'>
-                <Link href="/shoppingCart">
+                <Link href="/shoppingCart" key="shoppingCart" passHref>
                     <Image
-                        src={Cart}
+                        src={ currentPage === '/shoppingCart' ? CartActive : Cart }
                         width={30}
                         height={30}
                         alt="Cart"
-                        className='hover:scale-125'
+                        className={`hover:scale-125 ${currentPage === '/shoppingCart' ? 'border-2 border-shingle-fawn' : ''}`}
                     />
                 </Link>
-                <Link href="/login">
+                <Link href="/login" key="login" passHref>
                     <Image
-                        src={Login}
+                        src={ currentPage === '/login' ? LoginActive : Login }
                         width={30}
                         height={30}
                         alt="Login"
-                        className='hover:scale-125'
+                        className={`hover:scale-125 ${currentPage === '/login' ? 'border-2 border-shingle-fawn' : ''}`}
                     />
                 </Link>
             </div>
