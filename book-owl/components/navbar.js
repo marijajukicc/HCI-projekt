@@ -35,16 +35,16 @@ const NavBar = () => {
                         width={30}
                         height={30}
                         alt="Cart"
-                        className={`hover:scale-125 ${currentPage === '/shoppingCart' ? 'border-2 border-shingle-fawn' : ''}`}
+                        className={`hover:scale-125 ${ currentPage === '/shoppingCart' ? 'border-2 border-shingle-fawn' : '' }`}
                     />
                 </Link>
                 <Link href="/login" key="login" passHref>
                     <Image
-                        src={ currentPage === '/login' || '/registration' ? LoginActive : Login }
+                        src={ currentPage === '/login' || currentPage === '/registration' ? LoginActive : Login }
                         width={30}
                         height={30}
                         alt="Login"
-                        className={`hover:scale-125 ${currentPage === '/login' || '/registration' ? 'border-2 border-shingle-fawn' : ''}`}
+                        className={`hover:scale-125 ${ currentPage === '/login' || currentPage === '/registration' ? 'border-2 border-shingle-fawn' : '' }`}
                     />
                 </Link>
             </div>
