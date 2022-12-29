@@ -7,8 +7,8 @@ const Home = () => {
     <>
         <HeaderFooterLayout>
             <Background>
-              <p className="uppercase relative text-[#1e1e1e]/[.25]">Bored?</p>
-              <p className="uppercase relative text-center text-shingle-fawn">explore our page and <br></br> be entertained :)</p>
+              <p className="uppercase text-3xl text-[#1e1e1e]/[.25]">Bored?</p>
+              <p className="uppercase text-3xl text-center text-shingle-fawn">explore our page and <br></br> be entertained :)</p>
             </Background>
 
           <div className='mt-6 mb-20 flex flex-col items-center gap-10'>
