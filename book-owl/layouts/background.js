@@ -1,6 +1,6 @@
 const Background = ({children}) => {
     return ( 
-        <div className="w-full bg-[url('../public/background.webp')] bg-center h-60 flex justify-around items-center">
+        <div className="w-full h-60 bg-[url('../public/background.webp')] bg-center flex justify-evenly items-center">
             {children}
         </div> 
     );

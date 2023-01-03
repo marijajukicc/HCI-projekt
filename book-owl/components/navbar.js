@@ -2,6 +2,8 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
 
+import useAuth from '../hooks/useAuth';
+
 import { navigationItems } from "../constants/navbar";
 import Cart from "../public/shopping-cart.png";
 import CartActive from "../public/shopping-cart2.png";
@@ -11,6 +13,8 @@ import LoginActive from '../public/account2.png';
 const NavBar = () => {
     const router = useRouter();
     const currentPage = router.pathname;
+    const { token } = useAuth();
+
     
     return (
         <nav className='flex-grow flex justify-between text-shingle-fawn'>
@@ -38,13 +42,13 @@ const NavBar = () => {
                         className={`hover:scale-125 ${ currentPage === '/shoppingCart' ? 'border-2 border-shingle-fawn' : '' }`}
                     />
                 </Link>
-                <Link href="/login" key="login" passHref>
+                <Link href={token ? "/self" : "/login"} key="login" passHref>
                     <Image
-                        src={ currentPage === '/login' || currentPage === '/registration' ? LoginActive : Login }
+                        src={ token ? LoginActive : Login }
                         width={30}
                         height={30}
                         alt="Login"
-                        className={`hover:scale-125 ${ currentPage === '/login' || currentPage === '/registration' ? 'border-2 border-shingle-fawn' : '' }`}
+                        className={`hover:scale-125 ${ currentPage === '/self'  ? 'border-2 border-shingle-fawn' : '' }`}
                     />
                 </Link>
             </div>
