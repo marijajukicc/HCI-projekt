@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useRouter } from "next/router";
 
 import { filter } from "../../constants/filter";
 import { sortingOptions } from "../../constants/filter";
@@ -9,7 +8,6 @@ const Filters = () => {
     const [price, setPrice] = useState({ min: 0, max: 200 });
     const [sale, setSale] = useState("all");
     const [sortby, setSortBy] = useState("");
-    const router = useRouter();
 
     return(
         <div>
