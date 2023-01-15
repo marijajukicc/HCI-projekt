@@ -12,8 +12,11 @@ module.exports = {
         'shingle-fawn': '#724e34',
         'shingle-fawn-dark': '#2c1d13',
         'light-brown': '#a16f49',
+        'grey': '#ede4db'
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar-hide')
+  ],
 }
