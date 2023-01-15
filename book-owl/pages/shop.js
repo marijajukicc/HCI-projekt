@@ -1,22 +1,13 @@
 import HeaderFooterLayout from "../layouts/HeaderFooterLayout";
 import Background from "../layouts/background";
-import BookListItem from "../components/bookListItem";
 import SearchBar from '../components/shop/searchbar';
 import Filters from '../components/shop/filters';
 import Chategory from "../components/shop/chategory";
+import { fetchEntries } from "./api/ContentfulAPI";
+import Book from "../components/shop/book";
 
-const Shop = () => {
-    const items = [
-        { src: '../public/books/book4', ext: 'jpg', text: '10$' },
-        { src: '../public/books/book2', ext: 'jpg', text: '10$' },
-        { src: '../public/books/book3', ext: 'jpg', text: '10$' },
-        { src: '../public/books/book1', ext: 'jpg', text: '10$' },
-        { src: '../public/books/book1', ext: 'jpg', text: '10$' },
-        { src: '../public/books/book4', ext: 'jpg', text: '10$' },
-        { src: '../public/books/book2', ext: 'jpg', text: '10$' },
-        { src: '../public/books/book3', ext: 'jpg', text: '10$' },
-        { src: '../public/books/book4', ext: 'jpg', text: '10$' },
-    ]
+const Shop = (props) => {
+    const { fields } = props;
 
     return (
         <HeaderFooterLayout>
@@ -34,16 +25,30 @@ const Shop = () => {
 
                 <div className="col-start-2 col-end-6">
                     <Chategory />
-                    <div className="grid grid-cols-5 gap-12 gap-y-20 ml-10 mt-16">
-                        {items.map((item) => (
-                        <BookListItem key={item.src} {...item} />
-                    ))}
+                    <div className="grid grid-cols-4 gap-12 gap-y-20 ml-10 mt-16">                  
+                        {fields.map((item) => (
+                            <Book key={item.isbn} {...item}/>
+                        ))}
                     </div>
                 </div>
+                
             </div>
 
         </HeaderFooterLayout>
     );
 };
+
+export async function getStaticProps() {
+    const entries = await fetchEntries();
+    let data = entries.filter(() => function() {
+    return item.sys.contentType.sys.id === 'books'})
+    const fields = data.map((item) => item.fields );
+    return {
+        props: {
+            fields: fields,
+        }
+    }
+
+}
 
 export default Shop;

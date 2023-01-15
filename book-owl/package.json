@@ -9,7 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^15.16.2",
     "@next/font": "13.1.1",
+    "contentful": "^9.2.15",
     "eslint": "8.30.0",
     "eslint-config-next": "13.1.1",
     "jsonwebtoken": "^9.0.0",
