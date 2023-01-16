@@ -5,7 +5,7 @@ const Blog = () => {
     return (
         <HeaderFooterLayout>
             <Background>
-                <p className="uppercase text-3xl text-center text-shingle-fawn">Blog</p>
+                <p className="uppercase text-3xl text-shingle-fawn">Blog</p>
             </Background>
         </HeaderFooterLayout>
     );

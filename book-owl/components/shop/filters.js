@@ -74,7 +74,7 @@ const Filters = () => {
                 </div>
 
                 <button
-                className="bg-swamp-green/[.8] rounded-full mt-8 px-5 py-2 text-base hover:bg-swamp-green hover:ring hover:ring-swamp-green hover:ring-offset-2 text-shingle-fawn-dark"
+                className="bg-swamp-green/[.8] rounded-full w-11/12  mt-8 px-5 py-2 text-base hover:bg-swamp-green hover:ring hover:ring-swamp-green hover:ring-offset-2 text-shingle-fawn-dark"
                 >
                 Apply
                 </button>

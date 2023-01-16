@@ -19,7 +19,7 @@ const Shop = (props) => {
     return (
         <HeaderFooterLayout>
             <Background>
-                <p className="uppercase text-3xl text-center text-shingle-fawn">Shop</p>
+                <p className="uppercase text-3xl text-shingle-fawn h-60 bg-center">Shop</p>
             </Background>
 
             <div className="grid grid-cols-5 gap-8 p-20">
@@ -33,7 +33,7 @@ const Shop = (props) => {
                 <div className="col-start-2 col-end-6">
                     <ScrollContainer className="scroll-container flex ml-10 mb-10 gap-6 flex-nowrap scrollbar-hide text-shingle-fawn-dark select-none whitespace-nowrap overflow-x-auto last:mr-auto">
                         {filter.chategories.items.map((option) => (
-                            <button onClick={(e) => handleClick(option)} className="bg-grey rounded-full px-10 py-2 text-base hover:bg-swamp-green/[.4] active:bg-swamp-green/[.6]">{option}</button>
+                            <button onClick={(e) => handleClick(option)} className="bg-grey rounded-full px-10 py-2 text-base hover:bg-swamp-green/[.4]">{option}</button>
                         ))}
                     </ScrollContainer>
 
@@ -45,7 +45,7 @@ const Shop = (props) => {
                                 )
                             }
                                 
-                            if(chategory === 'All books') {
+                            if(chategory === 'All books' || chategory === '') {
                                 return (
                                     <Book key={item.isbn} {...item}/>
                                 )
