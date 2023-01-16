@@ -11,15 +11,17 @@ import { filter } from "../constants/filter";
 const Shop = (props) => {
     const { fields } = props;
     const [chategory, setChategory] = useState("");
+    const [clicked, setClicked] = useState(false);
 
     function handleClick (i) {
-        setChategory(i);
+        setChategory(i);3
+        setClicked(true);
     }
 
     return (
         <HeaderFooterLayout>
             <Background>
-                <p className="uppercase text-3xl text-shingle-fawn h-60 bg-center">Shop</p>
+                <p className="uppercase text-3xl text-shingle-fawn text-center">Shop</p>
             </Background>
 
             <div className="grid grid-cols-5 gap-8 p-20">
@@ -33,7 +35,9 @@ const Shop = (props) => {
                 <div className="col-start-2 col-end-6">
                     <ScrollContainer className="scroll-container flex ml-10 mb-10 gap-6 flex-nowrap scrollbar-hide text-shingle-fawn-dark select-none whitespace-nowrap overflow-x-auto last:mr-auto">
                         {filter.chategories.items.map((option) => (
-                            <button onClick={(e) => handleClick(option)} className="bg-grey rounded-full px-10 py-2 text-base hover:bg-swamp-green/[.4]">{option}</button>
+                            <button onClick={(e) => handleClick(option)} className=
+                            {`${chategory === option && clicked || (chategory === '' && option === 'All books') ? 'bg-swamp-green/[.8] font-bold' : 'bg-grey hover:bg-swamp-green/[.4]'}  rounded-full px-10 py-2 text-base`}>
+                                {option}</button>
                         ))}
                     </ScrollContainer>
 
