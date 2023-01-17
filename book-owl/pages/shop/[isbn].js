@@ -97,7 +97,7 @@ export async function getStaticPaths() {
     return {
       paths: [
         // String variant:
-        '/shop/[isbn]',
+        '/shop/1',
       ],
       fallback: true,
     }
