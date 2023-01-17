@@ -19,7 +19,7 @@ const BookDetails = (props) => {
             {fields?.map((item) => {
                if(item.isbn == bookID) {
                 return (
-                    <div>
+                    <div key={bookID}>
                         <Link href="/shop" passHref>
                             <p className="text-light-brown mb-8">Chategory {">"} {item.chategory} </p>
                         </Link>
