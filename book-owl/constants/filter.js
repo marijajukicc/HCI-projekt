@@ -3,8 +3,8 @@ const author = {
     items: ["A", "B", "C"],
 };
 
-const chategories = {
-    title:"chategory",
+const categories = {
+    title:"category",
     items: [
         "All books",
         "Teen and YA",
@@ -23,7 +23,7 @@ const chategories = {
 
 export const filter = {
     author: author,
-    chategories: chategories,
+    categories: categories,
 };
   
 export const sortingOptions = [

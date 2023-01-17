@@ -21,7 +21,7 @@ const BookDetails = (props) => {
                 return (
                     <div>
                         <Link href="/shop" passHref>
-                            <p className="text-light-brown mb-8">Chategory {">"} {item.chategory} </p>
+                            <p className="text-light-brown mb-8">Category {">"} {item.category} </p>
                         </Link>
                         <div className="grid grid-cols-2 grid-rows-5 items-center">
                             <Image
@@ -97,7 +97,7 @@ export async function getStaticPaths() {
     return {
       paths: [
         // String variant:
-        '/shop/[isbn]',
+        '/shop/1',
       ],
       fallback: true,
     }

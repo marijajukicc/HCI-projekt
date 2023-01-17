@@ -10,11 +10,11 @@ import { filter } from "../../constants/filter";
 
 const Shop = (props) => {
     const { fields } = props;
-    const [chategory, setChategory] = useState("");
+    const [category, setCategory] = useState("");
     const [clicked, setClicked] = useState(false);
 
     function handleClick (i) {
-        setChategory(i);
+        setCategory(i);
         setClicked(true);
     }
 
@@ -34,22 +34,22 @@ const Shop = (props) => {
 
                 <div className="col-start-2 col-end-6">
                     <ScrollContainer className="scroll-container flex ml-10 mb-10 gap-6 flex-nowrap scrollbar-hide text-shingle-fawn-dark select-none whitespace-nowrap overflow-x-auto last:mr-auto">
-                        {filter.chategories.items.map((option) => (
+                        {filter.categories.items.map((option) => (
                             <button onClick={(e) => handleClick(option)} className=
-                            {`${chategory === option && clicked || (chategory === '' && option === 'All books') ? 'bg-swamp-green/[.8] font-bold' : 'bg-grey hover:bg-swamp-green/[.4]'}  rounded-full px-10 py-2 text-base`}>
+                            {`${category === option && clicked || (category === '' && option === 'All books') ? 'bg-swamp-green/[.8] font-bold' : 'bg-grey hover:bg-swamp-green/[.4]'}  rounded-full px-10 py-2 text-base`}>
                                 {option}</button>
                         ))}
                     </ScrollContainer>
 
                     <div className="grid grid-cols-4 gap-12 gap-y-20 ml-10 mt-16">                  
                         {fields.map((item) => {
-                            if(item.chategory === chategory) {
+                            if(item.category === category) {
                                 return (
                                     <Book key={item.isbn} {...item}/>
                                 )
                             }
                                 
-                            if(chategory === 'All books' || chategory === '') {
+                            if(category === 'All books' || category === '') {
                                 return (
                                     <Book key={item.isbn} {...item}/>
                                 )
