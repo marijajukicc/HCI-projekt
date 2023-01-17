@@ -14,7 +14,6 @@ const NavBar = () => {
     const router = useRouter();
     const currentPage = router.pathname;
     const { token } = useAuth();
-
     
     return (
         <nav className='flex-grow flex justify-between text-shingle-fawn'>
@@ -24,13 +23,13 @@ const NavBar = () => {
                         <li
                             key={label}
                             className={`px-5 text-xl uppercase whitespace-nowrap hover:font-bold hover:scale-110 cursor-pointer ${
-                                currentPage === path ? 'font-bold underline decoration-2 scale-110' : ''
+                                currentPage === path || (currentPage === '/shop/[isbn]' && path === "/shop") ? 'font-bold underline decoration-2 scale-110' : ''
                             }`}
                             >
                             {label}
                         </li>
                     </Link>
-                ))}
+                 ))}
             </div>
             <div className='inline-flex gap-5'>
                 <Link href="/shoppingCart" key="shoppingCart" passHref>

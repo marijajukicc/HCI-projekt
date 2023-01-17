@@ -1,18 +1,21 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import Cart4 from "../../public/shopping-cart4.png";
 
-const Book = ({author, title, price, coverImage}) => {
+const Book = ({isbn, author, title, price, coverImage}) => {
    
     return (
         <div className="flex flex-col gap-3">
-            <Image 
-                src={'https:' + coverImage.fields.file.url}
-                width={200}
-                height={200}
-                alt="Book"
-                className="hover:scale-105"
-            />
+            <Link href={`/shop/${isbn}`} key={isbn} passHref>
+                <Image 
+                    src={'https:' + coverImage.fields.file.url}
+                    width={200}
+                    height={200}
+                    alt="Book"
+                    className="hover:scale-105"
+                />
+            </Link>
             <p className="text-lg text-shingle-fawn font-bold">{title}</p>
             <p className="text-sm text-light-brown">{author}</p>
             <p className="my-5 text-xl text-shingle-fawn-dark font-semibold">{price}$</p>

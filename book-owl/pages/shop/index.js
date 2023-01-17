@@ -1,12 +1,12 @@
-import HeaderFooterLayout from "../layouts/HeaderFooterLayout";
-import Background from "../layouts/background";
-import SearchBar from '../components/shop/searchbar';
-import Filters from '../components/shop/filters';
-import { fetchEntries } from "./api/ContentfulAPI";
-import Book from "../components/shop/book";
+import HeaderFooterLayout from "../../layouts/HeaderFooterLayout";
+import Background from "../../layouts/background";
+import SearchBar from '../../components/shop/searchbar';
+import Filters from '../../components/shop/filters';
+import { fetchEntries } from "../api/ContentfulAPI";
+import Book from "../../components/shop/book";
 import { useState } from "react";
 import ScrollContainer from "react-indiana-drag-scroll";
-import { filter } from "../constants/filter";
+import { filter } from "../../constants/filter";
 
 const Shop = (props) => {
     const { fields } = props;
@@ -14,7 +14,7 @@ const Shop = (props) => {
     const [clicked, setClicked] = useState(false);
 
     function handleClick (i) {
-        setChategory(i);3
+        setChategory(i);
         setClicked(true);
     }
 
@@ -63,6 +63,7 @@ const Shop = (props) => {
         </HeaderFooterLayout>
     );
 };
+
 
 export async function getStaticProps() {
     const entries = await fetchEntries();
