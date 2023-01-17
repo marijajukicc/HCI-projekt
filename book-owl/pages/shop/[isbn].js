@@ -21,7 +21,7 @@ const BookDetails = (props) => {
                 return (
                     <div key={bookID}>
                         <Link href="/shop" passHref>
-                            <p className="text-light-brown mb-8">Category {">"} {item.category} </p>
+                            <p className="text-light-brown mb-8">Category {">"} {item.category}</p>
                         </Link>
                         <div className="grid grid-cols-2 grid-rows-5 items-center">
                             <Image
