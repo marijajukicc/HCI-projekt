@@ -67,7 +67,7 @@ const Login = () => {
                     </div>
                     <button onClick={handleSubmit} className="bg-light-brown/[.67] rounded-full px-7 py-4 uppercase text-xl hover:bg-light-brown hover:ring hover:ring-shingle-fawn hover:ring-offset-2 text-shingle-fawn-dark mt-8">Log in</button> 
                     {error && <p className="mt-8 font-bold text-lg text-shingle-fawn">{error}</p>}
-                    <p className="text-lg text-shingle-fawn mt-20">Don{'&#39'}t have an account yet?</p>
+                    <p className="text-lg text-shingle-fawn mt-20">Don&#39;t have an account yet?</p>
                     <Link href="/registration" key="registration" passHref>
                         <button className="bg-light-brown/[.67] rounded-full px-7 py-4 uppercase text-xl hover:bg-light-brown hover:ring hover:ring-shingle-fawn hover:ring-offset-2 text-shingle-fawn-dark mt-4">Sign up now</button>     
                     </Link>
