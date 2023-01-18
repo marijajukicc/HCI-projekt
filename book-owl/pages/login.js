@@ -7,6 +7,7 @@ import api from "../api";
 import useAuth from "../hooks/useAuth";
 
 import BackArrow from "../public/back-arrow.png";
+import bg from "../public/background.webp";
 
 const Login = () => {
     const {setAuth } = useAuth();
@@ -32,7 +33,7 @@ const Login = () => {
     };
 
     return (
-        <main className="h-screen w-full bg-[url('../public/background.webp')]">
+        <main style={{background: `url(${bg.src})`,}} className="h-screen w-full">
             <div className="flex flex-col justify-center items-center p-10">
                 <Link href="/" passHref className="w-[48vh]">
                     <Image
