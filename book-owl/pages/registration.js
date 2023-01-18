@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 
 import BackArrow from "../public/back-arrow.png";
+import bg from "../public/background.webp";
 
 const Registration = () => {
     const router = useRouter();
@@ -37,7 +38,7 @@ const Registration = () => {
     }
 
     return (
-        <main className="h-full w-full bg-[url('../public/background.webp')]">
+        <main style={{background: `url(${bg.src})`,}} className="h-full w-full">
             <div className="flex flex-col justify-center items-center p-6">
                 <Link href="/" passHref className="w-[58vh]">
                     <Image
