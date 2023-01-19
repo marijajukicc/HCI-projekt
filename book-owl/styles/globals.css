@@ -25,3 +25,7 @@ a {
 #footer {
     -webkit-text-stroke: 2px #3F2919;
 }
+
+#blog {
+    -webkit-text-stroke: 3px #3F2919;
+}
