@@ -1,46 +1,72 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useDispatch, useSelector } from "react-redux";
 
-import Book from "../../public/book.jpg";
+import { 
+    incrementQuantity,
+    decrementQuantity,
+    removeFromCart 
+} from "../../redux/cart.slice";
 import Delete from "../../public/delete.png";
 import Logo from "../../public/Logo.png";
 import Money from "../../public/money.png";
 
 const Cart = () => {
+    const cart = useSelector((state) => state.cart);
+    const dispatch = useDispatch();
+
+    const getTotalPrice = () => {
+        return cart.reduce(
+            (accumulator, item) => accumulator + item.quantity * item.price,
+            0
+        );
+    }
+
+    const getTotalQuantity = () => {
+        return cart.reduce(
+            (accumulator, item) => accumulator + item.quantity,
+            0
+        );
+    }
+
     return (
-        <div className="flex justify-around my-16">
-            <div className="grid grid-cols-2 gap-y-20 gap-x-36 justify-items-center">
-                <div className="flex gap-10">
-                    <Image 
-                        src={Book}
+        <div className="grid grid-col-2 my-16 mx-4">
+            <div className="col-start-1 grid grid-cols-2 px-20 gap-14 items-center">
+                {cart.map((item) => (
+                    <div className="flex gap-x-5" key={item.isbn}>
+                        <Image 
+                        src={'https:' + item.coverImage.fields.file.url}
                         width={200}
                         height={200}
                         alt="Book"
-                    />
-                    <div className="flex flex-col justify-around">
-                        <p className="text-shingle-fawn text-xl">Defy the Night</p>
-                        <p className="text-light-brown text-lg">Brigid Kemmerer</p>
-                        <p className="text-shingle-fawn-dark font-semibold text-3xl">12.79$</p>
-                        <div className="flex justify-between px-5 py-2 text-shingle-fawn-dark font-bold rounded-full bg-grey">
-                            <button className="hover:scale-105">&lt;</button>
-                            <p>1</p>
-                            <button className="hover:scale-105">&gt;</button>
+                        className="object-contain"
+                        />
+                        <div className="grow flex flex-col justify-between">
+                            <p className="text-shingle-fawn text-lg">{item.title}<br></br><span className="text-light-brown text-sm">{item.author}</span></p>
+                            <p className="mt-auto text-shingle-fawn-dark text-xl">{item.price}$</p>
+                            <div>
+                                <div className="mb-10 mt-8 w-2/3 flex justify-between px-5 py-2 text-shingle-fawn-dark font-bold rounded-full bg-grey">
+                                    <button onClick={() => dispatch(decrementQuantity(item.isbn))} className="hover:scale-105">&lt;</button>
+                                    <p>{item.quantity}</p>
+                                    <button onClick={() => dispatch(incrementQuantity(item.isbn))} className="hover:scale-105">&gt;</button>
+                                </div>
+                                <button onClick={() => dispatch(removeFromCart(item.isbn))} className="place-self-start flex gap-x-2 justify-evenly items-center rounded-full text-base text-swamp-green p-2 hover:text-shingle-fawn hover:underline">
+                                    <Image 
+                                        src={Delete}
+                                        width={15}
+                                        height={15}
+                                        alt="X"
+                                    />
+                                    Delete item
+                                </button>
+                            </div>
                         </div>
-                        <button className="flex justify-evenly items-center rounded-full text-base text-swamp-green p-2 hover:text-shingle-fawn hover:underline">
-                            <Image 
-                                src={Delete}
-                                width={15}
-                                height={15}
-                                alt="X"
-                            />
-                            Delete item
-                        </button>
                     </div>
-                </div>
+                ))}
             </div>
-                
-            <aside className="border-l-2 border-shingle-fawn pl-5">
-                <div className="sticky top-0 grid grid-row-6 gap-x-5 gap-y-5 mt-5 text-shingle-fawn-dark">
+                      
+            <aside className="col-start-2 border-l-2 border-shingle-fawn pl-5">
+                <div className="sticky top-20 flex flex-col gap-5 text-shingle-fawn-dark">
                     <Image
                         src={Logo}
                         width={90}
@@ -48,11 +74,14 @@ const Cart = () => {
                         alt="Logo"
                         className="mt-5 col-span-2 place-self-center"
                     />
-                    <p className="row-start-2 text-lg">Number of items:</p>
-                    <p className="row-start-2 text-lg">1</p>
-                    <h2 className="row-start-3 text-2xl">Total:</h2>
-                    <p className="row-start-3 text-2xl font-bold">12.79$</p>
-                    <Link href="/checkout" className="col-span-2 row-start-4 mt-5" passHref>
+                    <div className="grid grid-cols-2 gap-y-5 items-center">
+                        <p className="col-start-1 text-lg ">Number of items: </p>
+                        <p className="col-start-2 ml-auto">{getTotalQuantity()}</p>
+                        <h2 className="col-start-1 text-2xl ">Total:</h2>
+                        <p className="col-start-2 ml-auto text-2xl font-bold underline">{getTotalPrice().toFixed(2)}$</p>
+                    </div>
+
+                    <Link href="/checkout" className=" mt-5" passHref>
                         <button className="w-full flex justify-evenly items-center bg-light-brown/[.95] rounded-full p-3 uppercase text-base hover:bg-light-brown hover:ring hover:ring-shingle-fawn hover:ring-offset-2 text-shingle-fawn-dark">
                             <Image 
                                 src={Money}
@@ -63,8 +92,8 @@ const Cart = () => {
                             Checkout
                         </button>
                     </Link>
-                    <p className="col-span-2 place-self-center row-start-5 text-xl">or</p>
-                    <Link href="/shop" className="col-span-2" passHref>
+                    <p className=" place-self-center text-xl">or</p>
+                    <Link href="/shop" className="" passHref>
                         <button className="w-full bg-swamp-green/[.5] rounded-full p-2 text-lg hover:bg-swamp-green/[.8] hover:ring hover:ring-swamp-green/[.8] hover:ring-offset-2 text-shingle-fawn-dark">Continue shoping</button>
                     </Link>
                 </div>

@@ -11,6 +11,7 @@
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.16.2",
     "@next/font": "13.1.1",
+    "@reduxjs/toolkit": "^1.9.1",
     "axios": "^1.2.2",
     "contentful": "^9.2.15",
     "eslint": "8.30.0",
@@ -20,6 +21,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-indiana-drag-scroll": "^2.2.0",
+    "react-redux": "^8.0.5",
     "tailwind-scrollbar-hide": "^1.1.7"
   },
   "devDependencies": {

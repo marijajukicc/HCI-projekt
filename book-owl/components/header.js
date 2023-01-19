@@ -6,7 +6,7 @@ import LogoImg from '../public/Logo.png';
 
 const Header = () => {
     return(
-        <header className='relative flex items-center bg-swamp-green'>
+        <header className='sticky top-0 z-10 flex items-center bg-swamp-green'>
             <main className='ml-6 mr-6 flex-grow flex flex-col mt-2'>
                 <div className='flex items-center gap-96'>
                     <Link href="/">

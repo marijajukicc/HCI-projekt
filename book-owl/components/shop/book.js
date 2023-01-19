@@ -1,26 +1,32 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
 
 import Cart4 from "../../public/shopping-cart4.png";
+import { addToCart } from "../../redux/cart.slice";
 
-const Book = ({isbn, author, title, price, coverImage}) => {
-   
+const Book = ({...item}) => {
+    const dispatch = useDispatch();
+    const [clicked, setClicked] = useState(false);
+
     return (
         <div className="flex flex-col gap-3">
-            <Link href={`/shop/${isbn}`} key={isbn} passHref>
+            <Link href={`/shop/${item.isbn}`} key={item.isbn} passHref>
                 <Image 
-                    src={'https:' + coverImage.fields.file.url}
+                    src={'https:' + item.coverImage.fields.file.url}
                     width={200}
                     height={200}
                     alt="Book"
                     className="hover:scale-105"
                 />
             </Link>
-            <p className="text-lg text-shingle-fawn font-bold">{title}</p>
-            <p className="text-sm text-light-brown">{author}</p>
-            <p className="my-5 text-xl text-shingle-fawn-dark font-semibold">{price}$</p>
-            
-            <button className='flex justify-evenly items-center mt-auto bg-light-brown/[.95] rounded-full p-3 uppercase text-base hover:bg-light-brown hover:ring hover:ring-shingle-fawn hover:ring-offset-2 text-shingle-fawn-dark'>
+            <p className="text-lg text-shingle-fawn font-bold">{item.title}</p>
+            <p className="mb-10 text-sm text-light-brown">{item.author}</p>
+            <div className="mt-auto">
+            <p className="text-2xl text-shingle-fawn-dark font-semibold">{item.price}$</p>
+            <button onClick={() => {dispatch(addToCart(item)); setClicked(true);}} onAnimationEnd={() => setClicked(false)} className={`w-full mt-6 flex justify-evenly items-center  bg-light-brown/[.95] rounded-full p-3 uppercase text-base hover:bg-light-brown hover:ring hover:ring-shingle-fawn hover:ring-offset-2 text-shingle-fawn-dark
+                ${clicked ? 'animate-wiggle' : ''}`}>
                 <Image 
                     src={Cart4}
                     width={30}
@@ -28,7 +34,8 @@ const Book = ({isbn, author, title, price, coverImage}) => {
                     alt="Cart"
                 />
                 Add to cart
-            </button>   
+            </button>  
+            </div> 
     </div>
 
     );

@@ -9,11 +9,20 @@ import Cart from "../public/shopping-cart.png";
 import CartActive from "../public/shopping-cart2.png";
 import Login from '../public/account.png';
 import LoginActive from '../public/account2.png';
+import { useSelector } from 'react-redux';
 
 const NavBar = () => {
     const router = useRouter();
     const currentPage = router.pathname;
     const { token } = useAuth();
+    const cart = useSelector((state) => state.cart);
+
+    const getTotalQuantity = () => {
+        return cart.reduce(
+            (accumulator, item) => accumulator + item.quantity,
+            0
+        );
+    }
     
     return (
         <nav className='flex-grow flex justify-between text-shingle-fawn'>
@@ -31,23 +40,25 @@ const NavBar = () => {
                     </Link>
                  ))}
             </div>
-            <div className='inline-flex gap-5'>
-                <Link href="/shoppingCart" key="shoppingCart" passHref>
-                    <Image
-                        src={ currentPage === '/shoppingCart' ? CartActive : Cart }
-                        width={30}
-                        height={30}
-                        alt="Cart"
-                        className={`hover:scale-125 ${ currentPage === '/shoppingCart' ? 'border-2 border-shingle-fawn' : '' }`}
-                    />
-                </Link>
+            <div className='inline-flex gap-5 items-center'>
+                <span className={`flex gap-1 items-center hover:scale-110 ${ currentPage === '/shoppingCart' ? 'scale-110  rounded-md border-b-4 border-shingle-fawn' : '' }`}>
+                    <Link href="/shoppingCart" key="shoppingCart" passHref>
+                        <Image
+                            src={ currentPage === '/shoppingCart' ? CartActive : Cart }
+                            width={30}
+                            height={30}
+                            alt="Cart"
+                        />
+                    </Link>
+                    <span className='text-xl text-shingle-fawn'>{getTotalQuantity()}</span>
+                </span>
                 <Link href={token ? "/self" : "/login"} key="login" passHref>
                     <Image
                         src={ token ? LoginActive : Login }
                         width={30}
                         height={30}
                         alt="Login"
-                        className={`hover:scale-125 ${ currentPage === '/self'  ? 'border-2 border-shingle-fawn' : '' }`}
+                        className={`hover:scale-110 ${ currentPage === '/self'  ? 'scale-110 outline outline-2 outline-offset-2 rounded-md outline-shingle-fawn' : '' }`}
                     />
                 </Link>
             </div>

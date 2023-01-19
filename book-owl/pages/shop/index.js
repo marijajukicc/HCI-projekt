@@ -26,7 +26,7 @@ const Shop = (props) => {
 
             <div className="grid grid-cols-5 gap-8 p-20">
                 <aside className="border-r-2 border-shingle-fawn -ml-10">
-                    <div className="sticky top-0">
+                    <div className="sticky top-5">
                         <SearchBar />
                         <Filters />
                     </div>
