@@ -2,7 +2,7 @@ import HeaderFooterLayout from "../../layouts/HeaderFooterLayout";
 import Background from "../../layouts/background";
 import SearchBar from '../../components/shop/searchbar';
 import Filters from '../../components/shop/filters';
-import { fetchEntries } from "../api/ContentfulAPI";
+import { getBooks } from "../api/ContentfulAPI";
 import Book from "../../components/shop/book";
 import { useState } from "react";
 import ScrollContainer from "react-indiana-drag-scroll";
@@ -36,7 +36,7 @@ const Shop = (props) => {
                     <ScrollContainer className="scroll-container flex ml-10 mb-10 gap-6 flex-nowrap scrollbar-hide text-shingle-fawn-dark select-none whitespace-nowrap overflow-x-auto last:mr-auto">
                         {filter.categories.items.map((option) => (
                             <button onClick={(e) => handleClick(option)} key={option.title} className=
-                            {`${category === option && clicked || (category === '' && option === 'All books') ? 'bg-swamp-green/[.8] font-bold' : 'bg-grey hover:bg-swamp-green/[.4]'}  rounded-full px-10 py-2 text-base`}>
+                            {`${category === option && clicked || (category === '' && option === 'All books') ? 'bg-swamp-green/[.8] font-bold' : 'bg-gray hover:bg-swamp-green/[.4]'}  rounded-full px-10 py-2 text-base`}>
                                 {option}</button>
                         ))}
                     </ScrollContainer>
@@ -66,7 +66,7 @@ const Shop = (props) => {
 
 
 export async function getStaticProps() {
-    const entries = await fetchEntries();
+    const entries = await getBooks();
     let data = entries.filter(() => function() {
     return item.sys.contentType.sys.id === 'books'})
     const fields = data.map((item) => item.fields );

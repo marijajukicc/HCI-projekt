@@ -1,9 +1,12 @@
 import HeaderFooterLayout from "../../layouts/HeaderFooterLayout";
 import LeadCard from "../../components/blog/leadCard";
+import { getBlogs } from "../api/ContentfulAPI";
 
 import bg from '../../public/background.webp';
 
-const Blog = () => {
+const Blog = (props) => {
+    const { fields } = props;
+
     return (
         <HeaderFooterLayout>
             <div 
@@ -23,11 +26,28 @@ const Blog = () => {
 		    </div>
 
             <div className="container px-4 md:px-0 max-w-6xl mx-auto -mt-32">
-                <LeadCard />
+                {fields?.map((item) => {
+                    return (
+                        <LeadCard key={item.id} {...item}/>
+                        )
+                    })}
             </div>
 
         </HeaderFooterLayout>
     );
 };
+
+export async function getStaticProps() {
+    const entries = await getBlogs();
+    let data = entries.filter(() => function() {
+    return item.sys.contentType.sys.id === 'blogs'})
+    const fields = data.map((item) => item.fields );
+    return {
+        props: {
+            fields: fields,
+        }
+    }
+
+}
 
 export default Blog;

@@ -19,7 +19,7 @@ const Filters = () => {
                     <select
                         name="author"
                         id="author"
-                        className="w-full p-2 outline-swamp-green/[.6] rounded-full bg-grey"
+                        className="w-full p-2 outline-swamp-green/[.6] rounded-full bg-gray"
                         onChange={(e) => setAuthor(e.target.value)}
                         value={author}
                     >
@@ -38,7 +38,7 @@ const Filters = () => {
                     <select
                         name="sort"
                         id="sort"
-                        className="w-full p-2 outline-swamp-green/[.6] rounded-full bg-grey"
+                        className="w-full p-2 outline-swamp-green/[.6] rounded-full bg-gray"
                         onChange={(e) => setSortBy(e.target.value)}
                         value={sortby}
                     >
@@ -57,7 +57,7 @@ const Filters = () => {
                     <select
                         name="sale"
                         id="sale"
-                        className="w-full p-2 outline-swamp-green/[.6] rounded-full bg-grey"
+                        className="w-full p-2 outline-swamp-green/[.6] rounded-full bg-gray"
                         onChange={(e) => setSale(e.target.value)}
                         value={sale}
                     >

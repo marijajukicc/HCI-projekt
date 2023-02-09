@@ -1,7 +1,7 @@
 import HeaderFooterLayout from '../layouts/HeaderFooterLayout';
 import Background from '../layouts/background';
 import Book from '../components/shop/book';
-import { fetchEntries } from './api/ContentfulAPI';
+import { getBooks } from './api/ContentfulAPI';
 
 const Home = (props) => {
   const { fields } = props;
@@ -59,7 +59,7 @@ const Home = (props) => {
 };
 
 export async function getStaticProps() {
-  const entries = await fetchEntries();
+  const entries = await getBooks();
   let data = entries.filter(() => function() {
   return item.sys.contentType.sys.id === 'books'})
   const fields = data.map((item) => item.fields );

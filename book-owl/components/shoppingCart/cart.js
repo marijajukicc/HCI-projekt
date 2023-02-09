@@ -45,7 +45,7 @@ const Cart = () => {
                             <p className="text-shingle-fawn text-lg">{item.title}<br></br><span className="text-light-brown text-sm">{item.author}</span></p>
                             <p className="mt-auto text-shingle-fawn-dark text-xl">{item.price}$</p>
                             <div>
-                                <div className="mb-10 mt-8 w-2/3 flex justify-between px-5 py-2 text-shingle-fawn-dark font-bold rounded-full bg-grey">
+                                <div className="mb-10 mt-8 w-2/3 flex justify-between px-5 py-2 text-shingle-fawn-dark font-bold rounded-full bg-gray">
                                     <button onClick={() => dispatch(decrementQuantity(item.isbn))} className="hover:scale-105">&lt;</button>
                                     <p>{item.quantity}</p>
                                     <button onClick={() => dispatch(incrementQuantity(item.isbn))} className="hover:scale-105">&gt;</button>

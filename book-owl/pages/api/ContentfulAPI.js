@@ -8,13 +8,26 @@ const client = createClient({
     accessToken: accessToken
 });
 
-export async function fetchEntries() {
+export async function getBooks() {
+    const entries = await client.getEntries({
+        content_type: 'books',
+    }
 
-    const response = await client.getContentType('books');
-    const entries = await client.getEntries();
+    );
 
     if (entries.items)
         return entries.items
 }
 
-export default { fetchEntries };
+export async function getBlogs() {
+    const entries = await client.getEntries({
+        content_type: 'blogs',
+    }
+
+    );
+
+    if (entries.items)
+        return entries.items
+}
+
+export default { getBooks, getBlogs };

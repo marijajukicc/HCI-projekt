@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 
-import { fetchEntries } from "../api/ContentfulAPI";
+import { getBooks } from "../api/ContentfulAPI";
 import { addToCart } from "../../redux/cart.slice";
 import HeaderFooterLayout from "../../layouts/HeaderFooterLayout";
 import Cart4 from "../../public/shopping-cart4.png";
@@ -88,7 +88,7 @@ const BookDetails = (props) => {
 };
 
 export async function getStaticProps() {
-    const entries = await fetchEntries();
+    const entries = await getBooks();
     let data = entries.filter(() => function() {
     return item.sys.contentType.sys.id === 'books'})
     const fields = data.map((item) => item.fields );
