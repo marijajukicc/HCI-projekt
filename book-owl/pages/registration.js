@@ -38,7 +38,7 @@ const Registration = () => {
     }
 
     return (
-        <main style={{background: `url(${bg.src})`,}} className="h-full w-full">
+        <main style={{background: `url(${bg.src})`,}} className="h-screen w-full">
             <div className="flex flex-col justify-center items-center p-6">
                 <Link href="/" passHref className="w-[58vh]">
                     <Image
