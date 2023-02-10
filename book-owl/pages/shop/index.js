@@ -12,11 +12,25 @@ const Shop = (props) => {
     const { fields } = props;
     const [category, setCategory] = useState("");
     const [clicked, setClicked] = useState(false);
-
-    function handleClick (i) {
+    const [query, setQuery] = useState("");
+    
+    const handleClick = (i) => {
         setCategory(i);
         setClicked(true);
     }
+
+    const handleChange = (e) => {
+        setQuery(e.target.value);
+        console.log(e.target.value);
+    }
+
+    const searchFilter = (array) => {
+        return array.filter(
+            (el) => el.title.toLowerCase().includes(query)
+          )
+        }
+        
+    const filtered = searchFilter(fields); 
 
     return (
         <HeaderFooterLayout>
@@ -27,7 +41,7 @@ const Shop = (props) => {
             <div className="grid grid-cols-5 gap-8 p-20">
                 <aside className="border-r-2 border-shingle-fawn -ml-10">
                     <div className="sticky top-5">
-                        <SearchBar />
+                        <SearchBar handleChange={handleChange}/>
                         <Filters />
                     </div>
                 </aside>
@@ -42,7 +56,7 @@ const Shop = (props) => {
                     </ScrollContainer>
 
                     <div className="grid grid-cols-4 gap-12 gap-y-20 ml-10 mt-16">                  
-                        {fields.map((item) => {
+                        {filtered.map((item) => {
                             if(item.category === category) {
                                 return (
                                     <Book key={item.isbn} {...item}/>

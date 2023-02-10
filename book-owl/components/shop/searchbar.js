@@ -1,9 +1,9 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 
 import Search from "/public/search.png"
 
-const SearchBar = () => {
+const SearchBar = ({handleChange}) => {
     const clickPoint = useRef();
 
     const handleFocus = () => {
@@ -13,7 +13,7 @@ const SearchBar = () => {
     const handleBlur = () => {
         clickPoint.current.style.display = "block";
     };
-
+    
     return(
         <div className="items-center flex justify-start pr-5">
             <div className="relative flex-grow">
@@ -31,6 +31,7 @@ const SearchBar = () => {
                     placeholder="Search here..."
                     onFocus={handleFocus}
                     onBlur={handleBlur}
+                    onChange={(e) => handleChange(e, e.target.value)}
                 />
             </div>
         </div>
