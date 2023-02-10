@@ -26,7 +26,7 @@ const Shop = (props) => {
 
     const searchFilter = (array) => {
         return array.filter(
-            (el) => el.title.toLowerCase().includes(query)
+            (el) => el.title.toLowerCase().includes(query) || el.author.toLowerCase().includes(query)
           )
         }
         
