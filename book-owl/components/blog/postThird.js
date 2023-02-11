@@ -16,9 +16,12 @@ const PostThird = ({...item}) => {
                     />
                     <p className="w-full text-light-brown/[.60] text-xs md:text-sm px-6 mb-3">{item.publishDate}</p>
                     <div className="w-full font-bold text-xl text-shingle-fawn-dark px-6 mb-2">{item.title}</div>
-                    <p className="text-shingle-fawn text-base px-6 mb-5">
-                        {item.description}
-                    </p>
+                        {
+                            !item.option &&
+                            <p className="text-shingle-fawn text-base px-6 mb-5">
+                                {item.description}
+                            </p>
+                        }
                 </Link>
             </div>
             <div className="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6">
