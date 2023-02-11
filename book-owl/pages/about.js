@@ -11,8 +11,8 @@ const About = () => {
             <Background>
                 <Image
                     src={LogoImg}
-                    width={150}
-                    height={150}
+                    width={200}
+                    height={200}
                     alt="Logo"
                 />
                 <p id="footer" className='font-pacifico uppercase text-5xl text-shingle-fawn'>Book <br></br> owl</p>
