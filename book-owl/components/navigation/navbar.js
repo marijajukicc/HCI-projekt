@@ -25,7 +25,7 @@ const NavBar = () => {
     }
     
     return (
-        <nav className='flex-grow flex justify-between text-shingle-fawn'>
+        <nav className='md:flex-grow md:flex md:justify-between hidden text-shingle-fawn '>
             <div className='flex py-0.5 list-none'>
                 {navigationItems.map(({ label, path }) => (
                     <Link href={path} key={label} passHref>
