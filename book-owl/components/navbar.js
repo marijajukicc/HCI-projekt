@@ -32,7 +32,7 @@ const NavBar = () => {
                         <li
                             key={label}
                             className={`px-5 text-xl uppercase whitespace-nowrap hover:font-bold hover:scale-110 cursor-pointer ${
-                                currentPage === path || (currentPage === '/shop/[isbn]' && path === "/shop") ? 'font-bold underline decoration-2 scale-110' : ''
+                                currentPage === path || (currentPage === '/shop/[isbn]' && path === "/shop") || (currentPage === '/blog/[id]' && path === "/blog") ? 'font-bold underline decoration-2 scale-110' : ''
                             }`}
                             >
                             {label}

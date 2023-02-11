@@ -1,18 +1,20 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const LeadCard = ({...item}) => {
     return (
         <div className="flex h-full bg-white rounded overflow-hidden shadow-lg">
             <div className="flex flex-wrap no-underline hover:no-underline">
-                <div className="w-full md:w-2/3 rounded-t">	
-                    <Image 
-                        src={'https:' + item.image.fields.file.url}
-                        width={0}
-                        height={0}
-                        sizes={100}
-                        alt="Blog img"
-                        className="shadow w-full h-full"
-                    />   
+                <div className="md:w-2/3 w-full md:h-full h-[35vh] rounded-t">	
+                <Link href={`/blog/${item.id}`} key={item.id} passHref>
+                    <div style={{
+                        background: `url(${'https:' + item.image.fields.file.url})`,
+                        backgroundSize:"cover",
+                        width: "100%",
+                        height:"100%",
+                    }}>
+                    </div>  
+                </Link>
                 </div>
 
 				<div className="w-full md:w-1/3 flex flex-col flex-grow flex-shrink">
@@ -26,9 +28,11 @@ const LeadCard = ({...item}) => {
 
                     <div className="flex justify-between items-center mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6">
                         <p className="mr-4 text-light-brown/[.80]">by {item.author}</p>
-                        <button className="font-extrabold text-3xl bg-swamp-green/[.7] rounded-full px-8 py-5 hover:bg-swamp-green hover:shadow-md hover:shadow-shingle-fawn-dark text-shingle-fawn-dark">
-                            &gt;
-                        </button>
+                        <Link href={`/blog/${item.id}`} key={item.id} passHref>
+                            <button className="font-extrabold text-3xl bg-swamp-green/[.7] rounded-full px-8 py-5 hover:bg-swamp-green hover:shadow-md hover:shadow-shingle-fawn-dark text-shingle-fawn-dark">
+                                &gt;
+                            </button>
+                        </Link>
                     </div>
 				</div>
 
