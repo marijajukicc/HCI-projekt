@@ -2,4 +2,4 @@
 Projekt za Korisnička sučelja
 
 
-Link na projekt: book-owl.vercel.app
+Link na projekt: [Book-Owl](https://book-owl.vercel.app)
