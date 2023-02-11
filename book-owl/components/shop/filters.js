@@ -4,8 +4,7 @@ import { filter } from "../../constants/filter";
 import { sortingOptions } from "../../constants/filter";
 
 const Filters = () => {
-    const [author, setAuthor] = useState("all");
-    const [price, setPrice] = useState({ min: 0, max: 200 });
+    const [price, setPrice] = useState("all");
     const [sale, setSale] = useState("all");
     const [sortby, setSortBy] = useState("");
 
@@ -17,16 +16,16 @@ const Filters = () => {
             <div>
                 <div className="mr-5 mb-4 text-shingle-fawn-dark">
                     <select
-                        name="author"
-                        id="author"
+                        name="price"
+                        id="price"
                         className="w-full p-2 outline-swamp-green/[.6] rounded-full bg-gray"
-                        onChange={(e) => setAuthor(e.target.value)}
-                        value={author}
+                        onChange={(e) => setPrice(e.target.value)}
+                        value={price}
                     >
                         <option value={"all"} key={"all"}>
-                        All Authors
+                        Price
                         </option>
-                        {filter.author.items.map((option) => (
+                        {filter.price.items.map((option) => (
                         <option value={option} key={option}>
                             {option}
                         </option>
@@ -62,13 +61,13 @@ const Filters = () => {
                         value={sale}
                     >
                         <option value={"all"} key={"all"}>
-                        Sale/New Season
+                            Sale/New Season
                         </option>
                         <option value={"sale"} key={"sale"}>
-                        Sale
+                            Sale
                         </option>
                         <option value={"new"} key={"new"}>
-                        New Season
+                            New Season
                         </option>
                     </select>
                 </div>

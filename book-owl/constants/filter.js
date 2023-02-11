@@ -1,6 +1,6 @@
-const author = {
-    title: "author",
-    items: ["A", "B", "C"],
+const price = {
+    title: "price",
+    items: ["< $10", "$10 - $40", "$40 - $80", "$80 <"],
 };
 
 const categories = {
@@ -22,7 +22,7 @@ const categories = {
 }
 
 export const filter = {
-    author: author,
+    price: price,
     categories: categories,
 };
   
@@ -30,4 +30,6 @@ export const sortingOptions = [
 { id: "new", title: "Newest books" },
 { id: "high", title: "Price High to Low" },
 { id: "low", title: "Price Low to High" },
+{ id: "az", title: "A-Z" },
+{ id: "za", title: "Z-A" },
 ];
