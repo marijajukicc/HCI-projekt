@@ -23,7 +23,7 @@ const Blog = (props) => {
                 style={{
                     background: `url(${bg.src})`,
                     backgroundPosition: "center",
-                    height: "50vh",
+                    height: "47vh",
                 }} 
                 className="w-full m-0 p-0 bg-cover bg-bottom" 
             >
