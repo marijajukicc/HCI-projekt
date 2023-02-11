@@ -7,7 +7,7 @@ import LogoImg from '../public/Logo.png';
 
 const About = () => {
     return (
-        <HeaderFooterLayout>
+        <HeaderFooterLayout title="Book-Owl / About ">
             <Background>
                 <Image
                     src={LogoImg}
