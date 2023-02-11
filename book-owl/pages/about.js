@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 import HeaderFooterLayout from '../layouts/HeaderFooterLayout';
 import Background from '../layouts/background';
-import LogoImg from '../public/Logo.png';
+import LogoImg from '../public/big-logo.png';
 
 
 const About = () => {
