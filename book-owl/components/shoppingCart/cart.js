@@ -30,7 +30,7 @@ const Cart = () => {
     }
 
     return (
-        <div className="grid grid-col-2 my-16 mx-4">
+        <div className="grid grid-col-2 my-40 mx-4">
             <div className="col-start-1 grid grid-cols-2 px-20 gap-14 items-center">
                 {cart.map((item) => (
                     <div className="flex gap-x-5" key={item.isbn}>

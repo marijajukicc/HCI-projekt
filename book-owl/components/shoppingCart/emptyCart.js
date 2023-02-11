@@ -5,7 +5,7 @@ import emptyCart from "../../public/empty-cart.png";
 
 const EmptyCart = () => {
     return (
-        <div className="my-20 flex flex-col items-center">
+        <div className="my-24 flex flex-col items-center">
             <Image 
                 src={emptyCart}
                 width={350}
