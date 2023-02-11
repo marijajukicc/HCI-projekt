@@ -2,13 +2,13 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import useAuth from '../hooks/useAuth';
+import useAuth from '../../hooks/useAuth';
 
-import { navigationItems } from "../constants/navbar";
-import Cart from "../public/shopping-cart.png";
-import CartActive from "../public/shopping-cart2.png";
-import Login from '../public/account.png';
-import LoginActive from '../public/account2.png';
+import { navigationItems } from "../../constants/navbar";
+import Cart from "../../public/shopping-cart.png";
+import CartActive from "../../public/shopping-cart2.png";
+import Login from '../../public/account.png';
+import LoginActive from '../../public/account2.png';
 import { useSelector } from 'react-redux';
 
 const NavBar = () => {
