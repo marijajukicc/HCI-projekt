@@ -8,7 +8,7 @@ import {
     removeFromCart 
 } from "../../redux/cart.slice";
 import Delete from "../../public/delete.png";
-import Logo from "../../public/Logo.png";
+import Logo from "../../public/big-logo.png";
 import Money from "../../public/money.png";
 
 const Cart = () => {
@@ -69,8 +69,8 @@ const Cart = () => {
                 <div className="sticky top-20 flex flex-col gap-5 text-shingle-fawn-dark">
                     <Image
                         src={Logo}
-                        width={90}
-                        height={90}
+                        width={120}
+                        height={120}
                         alt="Logo"
                         className="mt-5 col-span-2 place-self-center"
                     />
@@ -94,7 +94,7 @@ const Cart = () => {
                     </Link>
                     <p className=" place-self-center text-xl">or</p>
                     <Link href="/shop" className="" passHref>
-                        <button className="w-full bg-swamp-green/[.5] rounded-full p-2 text-lg hover:bg-swamp-green/[.8] hover:ring hover:ring-swamp-green/[.8] hover:ring-offset-2 text-shingle-fawn-dark">Continue shoping</button>
+                        <button className="w-full bg-swamp-green/[.5] rounded-full p-2 text-lg hover:bg-swamp-green/[.8] hover:ring hover:ring-swamp-green/[.8] hover:ring-offset-2 text-shingle-fawn-dark">Continue shopping</button>
                     </Link>
                 </div>
             </aside>
