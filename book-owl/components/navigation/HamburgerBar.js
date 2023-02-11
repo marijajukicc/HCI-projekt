@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useState, useContext } from "react";
 import { useRouter } from "next/router";
 
-import { navigationItems } from "../../constants/NavBar";
+import { navigationItems } from "../../constants/navbarConst";
 
 
 const HamburgerBar = () => {

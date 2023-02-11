@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 import useAuth from '../../hooks/useAuth';
 
-import { navigationItems } from "../../constants/navbar";
+import { navigationItems } from "../../constants/navbarConst";
 import Cart from "../../public/shopping-cart.png";
 import CartActive from "../../public/shopping-cart2.png";
 import Login from '../../public/account.png';
