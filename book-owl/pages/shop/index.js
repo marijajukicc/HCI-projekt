@@ -1,19 +1,50 @@
+import { useEffect, useState } from "react";
+import ScrollContainer from "react-indiana-drag-scroll";
+
 import HeaderFooterLayout from "../../layouts/HeaderFooterLayout";
 import Background from "../../layouts/background";
+
 import SearchBar from '../../components/shop/searchbar';
 import Filters from '../../components/shop/filters';
-import { getBooks } from "../api/ContentfulAPI";
 import Book from "../../components/shop/book";
-import { useState } from "react";
-import ScrollContainer from "react-indiana-drag-scroll";
+
+import { getBooks } from "../api/ContentfulAPI";
+
 import { filter } from "../../constants/filter";
+
+import { sortProducts } from "../../lib/sorting";
+import { searchProducts } from "../../lib/search";
+import { priceProducts } from "../../lib/price";
+import { saleProducts } from "../../lib/sale";
 
 const Shop = (props) => {
     const { fields } = props;
+
     const [category, setCategory] = useState("");
     const [clicked, setClicked] = useState(false);
+
     const [query, setQuery] = useState("");
+    const [sortingOption, setSortingOption] = useState("");
+    const [priceOption, setPriceOption] = useState("");
+    const [saleOption, setSaleOption] = useState("");
+
+    const [filtered, setFiltered] = useState(fields);
+
+    useEffect(() => {
+        setFiltered(searchProducts(query, fields));
+    }, [query])
+
+    useEffect(() => {
+        setFiltered(saleProducts(saleOption, filtered, fields));
+    }, [saleOption])
+
+    useEffect(() => {
+        setFiltered(priceProducts(priceOption, filtered, fields));
+    }, [priceOption])
+
     
+    const sorted = sortProducts(sortingOption, filtered);
+
     const handleClick = (i) => {
         setCategory(i);
         setClicked(true);
@@ -21,17 +52,27 @@ const Shop = (props) => {
 
     const handleChange = (e) => {
         setQuery(e.target.value);
-        console.log(e.target.value);
+    }
+    
+    const handleSorting = (e) => {
+        setSortingOption(e.target.value);
+    }
+    
+    const handlePrice = (e) => {
+        setPriceOption(e.target.value);
+    }
+    
+    const handleSale = (e) => {
+        setSaleOption(e.target.value);
     }
 
-    const searchFilter = (array) => {
-        return array.filter(
-            (el) => el.title.toLowerCase().includes(query) || el.author.toLowerCase().includes(query)
-          )
-        }
-        
-    const filtered = searchFilter(fields); 
-
+    const handleRemove = (e) => {
+        setFiltered(fields);
+        setSortingOption("");
+        setPriceOption("");
+        setSaleOption("");
+    }
+    
     return (
         <HeaderFooterLayout>
             <Background>
@@ -42,7 +83,8 @@ const Shop = (props) => {
                 <aside className="border-r-2 border-shingle-fawn -ml-10">
                     <div className="sticky top-5">
                         <SearchBar handleChange={handleChange}/>
-                        <Filters />
+                        <Filters handleSorting={handleSorting} handlePrice={handlePrice} handleRemove={handleRemove} handleSale={handleSale}
+                        />
                     </div>
                 </aside>
 
@@ -51,21 +93,22 @@ const Shop = (props) => {
                         {filter.categories.items.map((option) => (
                             <button onClick={(e) => handleClick(option)} key={option.title} className=
                             {`${category === option && clicked || (category === '' && option === 'All books') ? 'bg-swamp-green/[.8] font-bold' : 'bg-gray hover:bg-swamp-green/[.4]'}  rounded-full px-10 py-2 text-base`}>
-                                {option}</button>
+                                {option}
+                            </button>
                         ))}
                     </ScrollContainer>
 
                     <div className="grid grid-cols-4 gap-12 gap-y-20 ml-10 mt-16">                  
-                        {filtered.map((item) => {
+                        {filtered?.map((item) => {
                             if(item.category === category) {
                                 return (
-                                    <Book key={item.isbn} {...item}/>
+                                    <Book key={item.isbn} {...item} />
                                 )
                             }
                                 
                             if(category === 'All books' || category === '') {
                                 return (
-                                    <Book key={item.isbn} {...item}/>
+                                    <Book key={item.isbn} {...item} />
                                 )
                             }
                         })}
