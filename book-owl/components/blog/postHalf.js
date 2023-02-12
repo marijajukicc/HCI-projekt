@@ -4,7 +4,7 @@ import Image from "next/image";
 const PostHalf = ({...item}) => {
     return (
         <div className="w-full md:w-1/2 p-6 flex flex-col flex-grow flex-shrink">
-            <div className="flex bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
+            <div className="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
                 <Link href={`/blog/${item.id}`} key={item.id} passHref className="flex flex-wrap no-underline hover:no-underline">
                     <Image 
                         src={'https:' + item.image.fields.file.url}
