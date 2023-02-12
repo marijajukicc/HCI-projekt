@@ -47,16 +47,21 @@ const BookDetails = (props) => {
                                     {!item.sale && 
                                         <p className="col-start-2 text-2xl text-shingle-fawn-dark font-semibold">${item.price}</p>
                                     }
-                                    <button onClick={() => {dispatch(addToCart(item)); setClicked(true);}} onAnimationEnd={() => setClicked(false)} className={`col-start-2 w-1/3 flex justify-evenly items-center  bg-light-brown rounded-full p-3 uppercase text-base hover:ring hover:ring-shingle-fawn hover:ring-offset-2 shadow-xl shadow-shingle-fawn-dark  text-shingle-fawn-dark 
-                                        ${clicked ? 'animate-wiggle shadow-none' : ''}`}>
-                                        <Image 
-                                            src={Cart4}
-                                            width={30}
-                                            height={30}
-                                            alt="Cart"
-                                        />
-                                        Add to cart
-                                    </button>
+                                        <div className="flex items-center gap-4 text-shingle-fawn-dark ">
+                                        <button onClick={() => {dispatch(addToCart(item)); setClicked(true); setTimeout(() => {setClicked(false);}, 2000);}}  className={`col-start-2 w-1/3 flex justify-evenly items-center  bg-light-brown rounded-full p-3 uppercase text-base hover:ring hover:ring-shingle-fawn hover:ring-offset-2 shadow-xl shadow-shingle-fawn-dark  
+                                            ${clicked ? 'animate-wiggle shadow-none' : ''}`}>
+                                            <Image 
+                                                src={Cart4}
+                                                width={30}
+                                                height={30}
+                                                alt="Cart"
+                                            />
+                                            Add to cart
+                                        </button>
+                                        {clicked && (
+                                            <p><span className="font-extrabold">{item.title}</span> <span className="text-swamp-green font-bold">successfully</span> added to cart!</p>
+                                        )}
+                                    </div>
                                     <div className="col-start-2 flex">
                                         <Image
                                             src={Package}
