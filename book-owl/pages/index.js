@@ -21,7 +21,7 @@ const Home = (props) => {
           <div className='mt-6 mb-20 grid grid-row-3 grid-cols-5 gap-10'>
               <p className='row-span-1 col-start-3 place-self-center uppercase text-3xl text-shingle-fawn'>Sale</p>
               <div className="row-span-2 col-start-2 col-end-5">
-                <div className="grid grid-cols-4 gap-12 gap-y-20">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12 gap-y-20">
                   {props.books.map((item) => (
                     item.sale && (
                       <Book key={item.isbn} {...item}/>
@@ -35,7 +35,7 @@ const Home = (props) => {
           <div className='mt-6 mb-20 grid grid-row-3 grid-cols-5 gap-10'>
               <p className='row-span-1 col-start-3 place-self-center uppercase text-3xl text-shingle-fawn'>Blogs</p>
               <div className="row-span-2 col-start-2 col-end-5">
-                <div className="grid grid-cols-3 gap-12 gap-y-20">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 gap-y-20">
                   {props.blogs.slice(0, 3).map((item) => (
                     <div key={item.id} className="flex flex-wrap justify-between -mx-6">
                       <PostThird key={item.id} {...item} option/>
@@ -49,7 +49,7 @@ const Home = (props) => {
           <div className='mt-6 mb-20 grid grid-row-3 grid-cols-5 gap-10'>
               <p className='row-span-1 col-start-3 place-self-center uppercase text-3xl text-shingle-fawn'>Bestsellers</p>
               <div className="row-span-2 col-start-2 col-end-5">
-                <div className="grid grid-cols-4 gap-12 gap-y-20">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12 gap-y-20">
                   {props.books.map((item) => (
                     item.bestseller && (
                       <Book key={item.isbn} {...item}/>

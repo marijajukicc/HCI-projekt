@@ -18,11 +18,11 @@ const Book = ({...item}) => {
                     width={200}
                     height={200}
                     alt="Book"
-                    className="hover:scale-105"
+                    className="hover:scale-105 w-75 h-50 object-cover rounded-md"
                 />
             </Link>
-            <p className="text-lg text-shingle-fawn font-bold">{item.title}</p>
-            <p className="mb-10 text-sm text-light-brown">{item.author}</p>
+            <p className="mt-2 text-2xl text-shingle-fawn font-bold">{item.title}</p>
+            <p className="mt-2 mb-10 text-sm text-light-brown">{item.author}</p>
             <div className="mt-auto">
             <p className="text-2xl text-shingle-fawn-dark font-semibold">{item.price}$</p>
             <button onClick={() => {dispatch(addToCart(item)); setClicked(true);}} onAnimationEnd={() => setClicked(false)} className={`w-full mt-6 flex justify-evenly items-center  bg-light-brown/[.95] rounded-full p-3 uppercase text-base hover:bg-light-brown hover:ring hover:ring-shingle-fawn hover:ring-offset-2 text-shingle-fawn-dark
@@ -33,7 +33,7 @@ const Book = ({...item}) => {
                     height={30}
                     alt="Cart"
                 />
-                Add to cart
+                <span className="hidden md:block">Add to cart</span>
             </button>  
             </div> 
     </div>
