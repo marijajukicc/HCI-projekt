@@ -1,153 +1,107 @@
-import Link from "next/link";
-import { useState, useContext } from "react";
-import { useRouter } from "next/router";
-
+"use client";
+import Image from 'next/image';
+import Link from 'next/link';
+import { Popover, Transition } from '@headlessui/react';
+import { Bars3Icon} from '@heroicons/react/24/solid';
+import { XMarkIcon} from '@heroicons/react/20/solid';
 import { navigationItems } from "../../constants/navbarConst";
+import { useRouter } from 'next/router';
+import useAuth from '../../hooks/useAuth';
+import LogoImg from '../../public/Logo.png';
+import Cart from "../../public/shopping-cart.png";
+import CartActive from "../../public/shopping-cart2.png";
+import Login from '../../public/account.png';
+import LoginActive from '../../public/account2.png';
+import { useSelector } from 'react-redux';
+import { Fragment } from 'react';
 
 
 const HamburgerBar = () => {
   const router = useRouter();
   const currentPage = router.pathname;
-
-  const [isNavOpen, setIsNavOpen] = useState(false);
-
-
+  const { token } = useAuth();
+  const cart = useSelector((state) => state.cart);
+  const getTotalQuantity = () => {
+      return cart.reduce(
+          (accumulator, item) => accumulator + item.quantity,
+          0
+      );
+  }
   return (
-    <div className="flex items-center justify-between md:hidden lg:hidden">
-      <nav>
-        <section className="flex">
-          <div className="space-y-2" onClick={() => setIsNavOpen(!isNavOpen)}>
-            <span className="block h-0.5 w-8 bg-black"></span>
-            <span className="block h-0.5 w-8 bg-black"></span>
-            <span className="block h-0.5 w-8 bg-black"></span>
-          </div>
-
-          <div className={isNavOpen ? "showMenuNav" : "hideMenuNav"}>
-            <div
-              className="absolute top-0 right-0 px-8 py-8"
-              onClick={() => setIsNavOpen(false)}
-            >
-              <svg
-                className="h-8 w-8 text-black"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <line x1="18" y1="6" x2="6" y2="18" />
-                <line x1="6" y1="6" x2="18" y2="18" />
-              </svg>
-            </div>
-            <ul className="flex flex-col items-center justify-between min-h-[250px] bg-bckgrnd-light">
-              {navigationItems.map(({ label, path }) => (
-                <Link href={path} key={label} passHref>
-                  <li
-                    key={label}
-                    className={`font-bold text-lg px-5 py-2 my-1 rounded-md whitespace-nowrap hover:bg-bckgrnd-dark hover:bg-opacity-50 hover:text-black cursor-pointer ${
-                      currentPage === path
-                        ? " bg-bckgrnd-dark bg-opacity-60"
-                        : ""
-                    }`}
-                  >
-                    {label}
-                  </li>
-                </Link>
-              ))}
-              <Link href="/shopping_cart" key="Shopping cart" passHref>
-                <li
-                  key="Cart"
-                  className={`font-bold text-lg px-5 py-2 my-1 rounded-md whitespace-nowrap hover:bg-bckgrnd-dark hover:bg-opacity-50 hover:text-black cursor-pointer ${
-                    currentPage === "/shopping_cart"
-                      ? " bg-bckgrnd-dark bg-opacity-60"
-                      : ""
-                  }`}
-                >
-                  Shopping cart
-                </li>
-              </Link>
-              {!isLoggedIn && (
-                <>
-                  <Link href="/login" key="Login" passHref>
-                    <li
-                      key="Login"
-                      className={`font-bold text-lg px-5 py-2 mt-10 mb-1 rounded-md whitespace-nowrap hover:bg-bckgrnd-dark hover:bg-opacity-50 hover:text-black cursor-pointer ${
-                        currentPage === "/login"
-                          ? " bg-bckgrnd-dark bg-opacity-60"
-                          : ""
-                      }`}
-                    >
-                      Login
-                    </li>
-                  </Link>
-                  <Link href="/signup" key="Signup" passHref>
-                    <li
-                      key="Signup"
-                      className={`font-bold text-lg px-5 py-2 my-1 rounded-md whitespace-nowrap hover:bg-bckgrnd-dark hover:bg-opacity-50 hover:text-black cursor-pointer ${
-                        currentPage === "/signup"
-                          ? " bg-bckgrnd-dark bg-opacity-60"
-                          : ""
-                      }`}
-                    >
-                      Signup
-                    </li>
-                  </Link>
-                </>
-              )}
-              {isLoggedIn && (
-                <Link href="/wishlist" key="Wishlist" passHref>
-                  <li
-                    key="Wishlist"
-                    className={`font-bold text-lg px-5 py-2 my-1 rounded-md whitespace-nowrap hover:bg-bckgrnd-dark hover:bg-opacity-50 hover:text-black cursor-pointer ${
-                      currentPage === "/shopping_cart"
-                        ? " bg-bckgrnd-dark bg-opacity-60"
-                        : ""
-                    }`}
-                  >
-                    Wishlist
-                  </li>
-                </Link>
-              )}
-
-              {isLoggedIn && (
-                <li
-                  key="Logout"
-                  className={`font-bold text-lg px-5 py-2 my-10 rounded-md whitespace-nowrap hover:bg-bckgrnd-dark hover:bg-opacity-50 hover:text-black cursor-pointer ${
-                    currentPage === "/shopping_cart"
-                      ? " bg-bckgrnd-dark bg-opacity-60"
-                      : ""
-                  }`}
-                  onClick={handleLogout}
-                >
-                  Logout
-                </li>
-              )}
-            </ul>
-          </div>
-        </section>
-      </nav>
-      <style>{`
-      .hideMenuNav {
-        display: none;
-      }
-      .showMenuNav {
-        display: block;
-        position: absolute;
-        width: 50%;
-        height: 100vh;
-        top: 0;
-        right: 0;
-        background: #efefef;
-        z-index: 10;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
-        box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-      }
-    `}</style>
+    <Popover>
+    <div className='flex grow items-center justify-end md:hidden'>
+    <Popover.Button className='inline-flex items-center rounded-md bg-swamp-green text-shingle-fawn
+    hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500'>
+        <span className='sr-only'>Open Menu </span>
+        <Bars3Icon className='h-10 w-10'aria-hidden='true'/>
+    </Popover.Button>
     </div>
+    <Transition
+        as={Fragment}
+        enter='duration-200 ease out'
+        enterFrom='opacity-0 scale-95'
+        enterTo='opacity-100 scale-100'
+        leave='duration-100 ease in'
+        leaveFrom='opacity-100 scale-100'
+        leaveTo='opacity-0 scale-95'
+    >
+    <Popover.Panel focus className='absolute inset-x-0 top-0 origin-top-right transform p-2 transition md:hidden'>
+        <div className='rounded-lg bg-swamp-green shadow-lg ring-1 ring-black ring-opacity-5 divide-y-2 divide-gray-50'>
+        <div className='px-5 pt-5 pb-6'>
+            <div className='flex items-center justify-between'>
+                <p id="footer" className='font-pacifico text-shingle-fawn'>BOOK <br></br> OWL</p>
+                <div className='-mr-2'>
+                <Popover.Button className='inline-flex items-center rounded-md bg-swamp-green text-shingle-fawn
+                hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500'>
+                    <span className='sr-only'>Open Menu </span>
+                    <XMarkIcon className='h-10 w-10'aria-hidden='true'/>
+                </Popover.Button>
+                </div>
+            </div>
+            <div className='mt-6 '>
+                <nav className='grid gap-y-8 text-shingle-fawn list-none '>
+                        {navigationItems.map(({ label, path }) => (
+                            <Link href={path} key={label} passHref>
+                                <li
+                                    key={label}
+                                    className={`focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500 px-2 hover:font-bold cursor-pointer ${
+                                        currentPage === path || (currentPage === '/shop/[isbn]' && path === "/shop") || (currentPage === '/blog/[id]' && path === "/blog") ? 'font-bold underline decoration-2 scale-110' : ''
+                                    }`}
+                                    >
+                                    {label}
+                                </li>
+                            </Link>
+                        ))}
+                </nav>
+            </div>
+            <div className='mt-6 inline-flex items-center gap-2'>
+                <span className={`flex gap-1 items-center hover:scale-110 ${ currentPage === '/shoppingCart' ? 'scale-110  rounded-md border-b-4 border-shingle-fawn' : '' }`}>
+                    <Link href="/shoppingCart" key="shoppingCart" passHref>
+                        <Image
+                            src={ currentPage === '/shoppingCart' ? CartActive : Cart }
+                            width={30}
+                            height={30}
+                            alt="Cart"
+                        />
+                    </Link>
+                    <span className='md:hidden text-xl text-shingle-fawn'>{getTotalQuantity()}</span>
+                </span>
+                <Link href={token ? "/self" : "/login"} key="login" passHref>
+                    <Image
+                        src={ token ? LoginActive : Login }
+                        width={30}
+                        height={30}
+                        alt="Login"
+                        className={`hover:scale-110 ${ currentPage === '/self'  ? 'scale-110 outline outline-2 outline-offset-2 rounded-md outline-shingle-fawn' : '' }`}
+                    />
+                </Link>
+            </div>
+            </div>
+        </div>
+
+    </Popover.Panel>
+    </Transition>
+    </Popover>
   );
 };
 
