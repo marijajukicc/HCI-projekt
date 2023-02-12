@@ -17,6 +17,8 @@ const Blog = (props) => {
         setIsClicked(!isClicked);
     };
 
+    console.log(fields)
+
     return (
         <HeaderFooterLayout>
             <div 
@@ -56,12 +58,13 @@ const Blog = (props) => {
                             <PostTwo key={fields[13].id} {...fields[13]}/>
                             <PostThird key={fields[14].id} {...fields[14]} />
 
-                            <PostTwo key={fields[15].id} {...fields[15]} />
+                            <PostThird key={fields[15].id} {...fields[15]} />
                             <PostThird key={fields[16].id} {...fields[16]} />
-                            <PostHalf key={fields[17].id} {...fields[17]} />
+                            <PostThird key={fields[17].id} {...fields[17]} />
                             <PostHalf key={fields[18].id} {...fields[18]} />
-                            <PostTwo key={fields[19].id} {...fields[19]} />
-                            <PostThird key={fields[20].id} {...fields[20]}/>  
+                            <PostHalf key={fields[19].id} {...fields[19]} />
+                            <PostTwo key={fields[20].id} {...fields[20]}/>  
+                            <PostThird key={fields[21].id} {...fields[21]}/>  
                         </>
                     }
                     <button onClick={handleClick} className="mx-auto mb-5 text-xl bg-swamp-green/[.7] rounded-full px-5 py-2 hover:bg-swamp-green text-shingle-fawn-dark">
