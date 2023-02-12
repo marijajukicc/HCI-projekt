@@ -17,10 +17,8 @@ const Blog = (props) => {
         setIsClicked(!isClicked);
     };
 
-    console.log(fields)
-
     return (
-        <HeaderFooterLayout>
+        <HeaderFooterLayout title="BookOwl / Blog">
             <div 
                 style={{
                     background: `url(${bg.src})`,

@@ -31,7 +31,7 @@ const Post = (props) => {
         },
     };
     return (
-        <HeaderFooterLayout>
+        <HeaderFooterLayout title="BookOwl / Blog">
             
             {fields?.map((item, index) => {
                 if(item.id == postID) {

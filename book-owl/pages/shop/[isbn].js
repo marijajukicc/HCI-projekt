@@ -18,7 +18,7 @@ const BookDetails = (props) => {
     const [clicked, setClicked] = useState(false);
 
     return (
-        <HeaderFooterLayout>
+        <HeaderFooterLayout title="BookOwl / Shop">
 
             <div className="p-10 mx-20">
                 {fields?.map((item) => {

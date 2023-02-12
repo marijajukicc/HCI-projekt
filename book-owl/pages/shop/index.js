@@ -74,7 +74,7 @@ const Shop = (props) => {
     }
     
     return (
-        <HeaderFooterLayout>
+        <HeaderFooterLayout title="BookOwl / Shop">
             <Background>
                 <p className="uppercase text-3xl text-shingle-fawn text-center">Shop</p>
             </Background>
