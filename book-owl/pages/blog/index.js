@@ -23,7 +23,7 @@ const Blog = (props) => {
                 style={{
                     background: `url(${bg.src})`,
                     backgroundPosition: "center",
-                    height: "47vh",
+                    height: "42vh",
                 }} 
                 className="w-full m-0 p-0 bg-cover bg-bottom" 
             >
@@ -35,7 +35,7 @@ const Blog = (props) => {
                 </div>
 		    </div>
 
-            <div className="container px-4 md:px-0 max-w-6xl mx-auto -mt-32">
+            <div className="container px-8 max-w-6xl mx-auto -mt-32">
                 <LeadCard key={fields[0].id} {...fields[0]}/>
                 <div className="flex flex-wrap justify-between pt-12 -mx-6">
                     <PostThird key={fields[1].id} {...fields[1]} />
@@ -70,6 +70,7 @@ const Blog = (props) => {
                     </button>
                 </div>
             </div>
+                
 
         </HeaderFooterLayout>
     );

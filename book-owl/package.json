@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.16.2",
+    "@headlessui/react": "^1.7.10",
+    "@heroicons/react": "^2.0.15",
     "@next/font": "13.1.1",
     "@reduxjs/toolkit": "^1.9.1",
     "axios": "^1.2.2",

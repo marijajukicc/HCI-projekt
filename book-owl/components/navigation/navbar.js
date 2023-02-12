@@ -25,13 +25,13 @@ const NavBar = () => {
     }
     
     return (
-        <nav className='md:flex-grow md:flex md:justify-between hidden text-shingle-fawn '>
+        <nav className='hidden lg:flex-grow md:flex md:justify-between gap-8 text-shingle-fawn '>
             <div className='flex py-0.5 list-none'>
                 {navigationItems.map(({ label, path }) => (
                     <Link href={path} key={label} passHref>
                         <li
                             key={label}
-                            className={`px-5 text-xl uppercase whitespace-nowrap hover:font-bold hover:scale-110 cursor-pointer ${
+                            className={`md:px-2 lg:px-5 text-xl uppercase whitespace-nowrap hover:font-bold hover:scale-110 cursor-pointer ${
                                 currentPage === path || (currentPage === '/shop/[isbn]' && path === "/shop") || (currentPage === '/blog/[id]' && path === "/blog") ? 'font-bold underline decoration-2 scale-110' : ''
                             }`}
                             >
@@ -50,7 +50,7 @@ const NavBar = () => {
                             alt="Cart"
                         />
                     </Link>
-                    <span className='text-xl text-shingle-fawn'>{getTotalQuantity()}</span>
+                    <span className='md:hidden text-xl text-shingle-fawn'>{getTotalQuantity()}</span>
                 </span>
                 <Link href={token ? "/self" : "/login"} key="login" passHref>
                     <Image
