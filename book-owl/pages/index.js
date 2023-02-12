@@ -1,4 +1,5 @@
 import HeaderFooterLayout from '../layouts/HeaderFooterLayout';
+import Link from 'next/link';
 import Background from '../layouts/background';
 import Book from '../components/shop/book';
 import PostThird from '../components/blog/postThird';
@@ -28,7 +29,7 @@ const Home = (props) => {
                   ))}
                 </div>
               </div>
-                <button className='row-span-3 col-start-3 place-self-center bg-light-brown/[.67] rounded-full px-7 py-4 uppercase text-xl hover:bg-light-brown hover:ring hover:ring-shingle-fawn hover:ring-offset-2 text-shingle-fawn-dark'>Discover more</button>
+                <button className='row-span-3 col-start-3 place-self-center bg-light-brown/[.67] rounded-full px-7 py-4 uppercase text-xl hover:bg-light-brown hover:ring hover:ring-shingle-fawn hover:ring-offset-2 text-shingle-fawn-dark'><Link href="/shop" passHref>Discover more</Link></button>
           </div>
 
           <div className='mt-6 mb-20 grid grid-row-3 grid-cols-5 gap-10'>
@@ -42,6 +43,7 @@ const Home = (props) => {
                   ))}
                 </div>
               </div>
+              <button className='row-span-3 col-start-3 place-self-center bg-light-brown/[.67] rounded-full px-7 py-4 uppercase text-xl hover:bg-light-brown hover:ring hover:ring-shingle-fawn hover:ring-offset-2 text-shingle-fawn-dark'><Link href="/blog" passHref>More posts</Link></button>
           </div>
 
           <div className='mt-6 mb-20 grid grid-row-3 grid-cols-5 gap-10'>
@@ -55,7 +57,7 @@ const Home = (props) => {
                   ))}
                 </div>
               </div>
-                <button className='row-span-3 col-start-3 place-self-center bg-light-brown/[.67] rounded-full px-7 py-4 uppercase text-xl hover:bg-light-brown hover:ring hover:ring-shingle-fawn hover:ring-offset-2 text-shingle-fawn-dark'>Discover more</button>
+                <button className='row-span-3 col-start-3 place-self-center bg-light-brown/[.67] rounded-full px-7 py-4 uppercase text-xl hover:bg-light-brown hover:ring hover:ring-shingle-fawn hover:ring-offset-2 text-shingle-fawn-dark'><Link href="/shop" passHref>Discover more</Link></button>
           </div>
 
         </HeaderFooterLayout>
