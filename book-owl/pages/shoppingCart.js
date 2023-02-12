@@ -8,7 +8,7 @@ const ShoppingCart = () => {
     const cart = useSelector((state) => state.cart);
 
     return (
-        <HeaderFooterLayout>
+        <HeaderFooterLayout title="BookOwl / Shopping cart">
             {cart.length === 0 ? (
                 <EmptyCart /> 
                 ) : (

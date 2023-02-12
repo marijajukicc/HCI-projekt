@@ -11,7 +11,7 @@ const Home = (props) => {
 
   return (
     <>
-        <HeaderFooterLayout>
+        <HeaderFooterLayout title="BookOwl / Home">
             <Background>
               <p className="uppercase text-3xl text-[#1e1e1e]/[.25]">Bored?</p>
               <p className="uppercase text-3xl text-center text-shingle-fawn">explore our page and <br></br> be entertained :)</p>

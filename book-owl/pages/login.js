@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
@@ -33,6 +34,11 @@ const Login = () => {
     };
 
     return (
+        <>
+        <Head>
+            <title>BookOwl / Login</title>
+            <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        </Head>
         <main style={{background: `url(${bg.src})`,}} className="h-screen w-full">
             <div className="flex flex-col justify-center items-center p-10">
                 <Link href="/" passHref className="w-[48vh]">
@@ -75,6 +81,7 @@ const Login = () => {
                 </section>
             </div>
         </main> 
+        </>
     );
 };
 

@@ -11,7 +11,7 @@ const Self = () => {
     const router = useRouter();
 
     return (
-        <HeaderFooterLayout>
+        <HeaderFooterLayout title="BookOwl / Self">
             
             <Background>
                 <p className="uppercase text-3xl text-center text-shingle-fawn">Self</p>

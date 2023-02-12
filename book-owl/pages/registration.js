@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
@@ -38,6 +39,11 @@ const Registration = () => {
     }
 
     return (
+        <>
+        <Head>
+            <title>BookOwl / Registration</title>
+            <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        </Head>
         <main style={{background: `url(${bg.src})`,}} className="h-screen w-full">
             <div className="flex flex-col justify-center items-center p-6">
                 <Link href="/" passHref className="w-[58vh]">
@@ -100,6 +106,7 @@ const Registration = () => {
                 </section>
             </div>
         </main>
+        </>
     );
 };
 
