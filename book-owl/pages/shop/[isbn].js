@@ -38,7 +38,15 @@ const BookDetails = (props) => {
                                     />
                                     <h1 className="col-start-2 text-3xl text-shingle-fawn font-bold">{item.title}</h1>
                                     <p className="col-start-2 text-xl text-light-brown">{item.author}</p>
-                                    <p className="col-start-2 text-2xl text-shingle-fawn-dark font-semibold">{item.price}$</p>
+                                    {item.sale &&
+                                        <div>
+                                            <p className="text-2xl text-shingle-fawn-dark line-through">${item.oldPrice}</p>
+                                            <p className="text-2xl text-red-600 font-semibold">${item.price}</p>
+                                        </div>
+                                    }
+                                    {!item.sale && 
+                                        <p className="col-start-2 text-2xl text-shingle-fawn-dark font-semibold">${item.price}</p>
+                                    }
                                     <button onClick={() => {dispatch(addToCart(item)); setClicked(true);}} onAnimationEnd={() => setClicked(false)} className={`col-start-2 w-1/3 flex justify-evenly items-center  bg-light-brown rounded-full p-3 uppercase text-base hover:ring hover:ring-shingle-fawn hover:ring-offset-2 shadow-xl shadow-shingle-fawn-dark  text-shingle-fawn-dark 
                                         ${clicked ? 'animate-wiggle shadow-none' : ''}`}>
                                         <Image 

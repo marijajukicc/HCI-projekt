@@ -24,7 +24,15 @@ const Book = ({...item}) => {
             <p className="text-lg text-shingle-fawn font-bold">{item.title}</p>
             <p className="mb-10 text-sm text-light-brown">{item.author}</p>
             <div className="mt-auto">
-            <p className="text-2xl text-shingle-fawn-dark font-semibold">{item.price}$</p>
+                {item.sale &&
+                    <>
+                        <p className="text-2xl text-shingle-fawn-dark line-through">${item.oldPrice}</p>
+                        <p className="text-2xl text-red-600 font-semibold">${item.price}</p>
+                    </>
+                }
+                {!item.sale &&
+                    <p className="text-2xl text-shingle-fawn-dark font-semibold">${item.price}</p>
+                }
             <button onClick={() => {dispatch(addToCart(item)); setClicked(true);}} onAnimationEnd={() => setClicked(false)} className={`w-full mt-6 flex justify-evenly items-center  bg-light-brown/[.95] rounded-full p-3 uppercase text-base hover:bg-light-brown hover:ring hover:ring-shingle-fawn hover:ring-offset-2 text-shingle-fawn-dark
                 ${clicked ? 'animate-wiggle' : ''}`}>
                 <Image 
