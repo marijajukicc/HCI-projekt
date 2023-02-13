@@ -33,16 +33,19 @@ const Book = ({...item}) => {
                 {!item.sale &&
                     <p className="text-2xl text-shingle-fawn-dark font-semibold">${item.price}</p>
                 }
-            <button onClick={() => {dispatch(addToCart(item)); setClicked(true);}} onAnimationEnd={() => setClicked(false)} className={`w-84 mt-4 px-6 py-3 flex justify-evenly items-center  bg-light-brown/[.95] rounded-full p-3 uppercase text-base hover:bg-light-brown hover:ring hover:ring-shingle-fawn hover:ring-offset-2 text-shingle-fawn-dark
-                ${clicked ? 'animate-wiggle' : ''}`}>
-                <Image 
-                    src={Cart4}
-                    width={30}
-                    height={30}
-                    alt="Cart"
-                />
-                <span className="">Add to cart</span>
-            </button>  
+                    <button onClick={() => {dispatch(addToCart(item)); setClicked(true); setTimeout(() => {setClicked(false);}, 2000);}} className={`w-full mt-6 flex justify-evenly items-center  bg-light-brown/[.95] rounded-full p-3 uppercase text-base hover:bg-light-brown hover:ring hover:ring-shingle-fawn hover:ring-offset-2 text-shingle-fawn-dark
+                        ${clicked ? 'hidden' : ''}`}>
+                        <Image 
+                            src={Cart4}
+                            width={30}
+                            height={30}
+                            alt="Cart"
+                        />
+                        Add to cart
+                    </button>
+                    {clicked && (
+                        <p className="mt-6 text-shingle-fawn-dark"><span className="font-extrabold ">{item.title}</span> <span className="text-swamp-green font-bold">successfully</span> added to cart!</p>
+                    )}
             </div> 
     </div>
 
