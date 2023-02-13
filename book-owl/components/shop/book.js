@@ -11,7 +11,7 @@ const Book = ({...item}) => {
     const [clicked, setClicked] = useState(false);
 
     return (
-        <div className="flex flex-col gap-3">
+        <div className="flex items-center flex-col gap-3">
             <Link href={`/shop/${item.isbn}`} key={item.isbn} passHref>
                 <Image 
                     src={'https:' + item.coverImage.fields.file.url}
@@ -33,7 +33,7 @@ const Book = ({...item}) => {
                 {!item.sale &&
                     <p className="text-2xl text-shingle-fawn-dark font-semibold">${item.price}</p>
                 }
-            <button onClick={() => {dispatch(addToCart(item)); setClicked(true);}} onAnimationEnd={() => setClicked(false)} className={`w-full mt-6 flex justify-evenly items-center  bg-light-brown/[.95] rounded-full p-3 uppercase text-base hover:bg-light-brown hover:ring hover:ring-shingle-fawn hover:ring-offset-2 text-shingle-fawn-dark
+            <button onClick={() => {dispatch(addToCart(item)); setClicked(true);}} onAnimationEnd={() => setClicked(false)} className={`w-84 mt-4 px-6 py-3 flex justify-evenly items-center  bg-light-brown/[.95] rounded-full p-3 uppercase text-base hover:bg-light-brown hover:ring hover:ring-shingle-fawn hover:ring-offset-2 text-shingle-fawn-dark
                 ${clicked ? 'animate-wiggle' : ''}`}>
                 <Image 
                     src={Cart4}
@@ -41,7 +41,7 @@ const Book = ({...item}) => {
                     height={30}
                     alt="Cart"
                 />
-                <span className="hidden md:block">Add to cart</span>
+                <span className="">Add to cart</span>
             </button>  
             </div> 
     </div>

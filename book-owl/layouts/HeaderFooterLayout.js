@@ -4,7 +4,7 @@ import PageHead from "../components/pageHead";
 
 const HeaderFooterLayout = ({title, children, ...rest}) => {
     return(
-        <div>
+        <div className="z-30">
             <PageHead title={title} />
             <Header />
             <main {...rest}>{children}</main>
