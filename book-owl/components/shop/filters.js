@@ -17,9 +17,9 @@ const Filters = ({handleSorting, handlePrice, handleSale, handleRemove}) => {
     }
 
     return(
-        <div>
+        <div className="mt-6">
             <div className="md:flex-row justify-items-start md:block hidden">
-                <h1 className="mt-20 mb-5 text-xl text-shingle-fawn-dark">Filters</h1>
+                <h1 className="md:mt-20 mb-5 text-xl text-shingle-fawn-dark">Filters</h1>
             </div>
             <div>
                 <div className="mr-5 mb-4 text-shingle-fawn-dark">

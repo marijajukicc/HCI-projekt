@@ -29,14 +29,15 @@ const BookDetails = (props) => {
                                     <p className="text-xl md:text-lg text-light-brown mb-8">Category {">"} {item.category}</p>
                                 </Link>
                                 <div className="flex flex-wrap md:grid md:grid-cols-2 md:grid-rows-5 items-center">
-
+                                    <div className="md:row-span-5 place-self-center">
                                     <Image
                                         src={'https:' + item.coverImage.fields.file.url}
                                         width={250}
                                         height={250}
                                         alt="Book"
-                                        className=" md:row-span-5 place-self-center"
+                                        className=" "
                                     />
+                                    </div>
 
                                     <h1 className="md:col-start-2 text-3xl text-shingle-fawn font-bold">{item.title}</h1>
                                     <p className=" w-full lg:w-1/3 mt-2 mb-2 md:t-0 md:mb-0 md:col-start-2 text-xl text-light-brown">{item.author}</p>
