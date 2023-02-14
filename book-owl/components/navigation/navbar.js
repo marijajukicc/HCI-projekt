@@ -50,7 +50,7 @@ const NavBar = () => {
                             alt="Cart"
                         />
                     </Link>
-                    <span className='md:hidden text-xl text-shingle-fawn'>{getTotalQuantity()}</span>
+                    <span className='text-xl text-shingle-fawn'>{getTotalQuantity()}</span>
                 </span>
                 <Link href={token ? "/self" : "/login"} key="login" passHref>
                     <Image
