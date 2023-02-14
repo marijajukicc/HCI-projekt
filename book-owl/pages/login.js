@@ -77,7 +77,7 @@ const Login = () => {
                         {error && <p className="mt-8 font-bold text-lg text-shingle-fawn">{error}</p>}
                     </div>
                     <div>
-                        <p className="text-base sm:text-lg text-shingle-fawn">Don&#39;t have an account yet?</p>
+                        <p className="text-base sm:text-lg text-shingle-fawn mb-2">Don&#39;t have an account yet?</p>
                         <Link href="/registration" key="registration" passHref>
                             <button className="bg-light-brown/[.67] rounded-full px-7 py-4 uppercase text-base sm:text-xl hover:bg-light-brown hover:ring hover:ring-shingle-fawn hover:ring-offset-2 text-shingle-fawn-dark">Sign up now</button>     
                         </Link>
