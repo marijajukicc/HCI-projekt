@@ -4,16 +4,16 @@ import Link from 'next/link';
 import { Popover, Transition } from '@headlessui/react';
 import { Bars3Icon} from '@heroicons/react/24/solid';
 import { XMarkIcon} from '@heroicons/react/20/solid';
-import { navigationItems } from "../../constants/navbarConst";
+import { navigationItems } from "../../constants/navbar";
 import { useRouter } from 'next/router';
+import { useSelector } from 'react-redux';
+import { Fragment } from 'react';
 import useAuth from '../../hooks/useAuth';
-import LogoImg from '../../public/Logo.png';
+
 import Cart from "../../public/shopping-cart.png";
 import CartActive from "../../public/shopping-cart2.png";
 import Login from '../../public/account.png';
 import LoginActive from '../../public/account2.png';
-import { useSelector } from 'react-redux';
-import { Fragment } from 'react';
 
 
 const HamburgerBar = () => {
@@ -21,6 +21,7 @@ const HamburgerBar = () => {
   const currentPage = router.pathname;
   const { token } = useAuth();
   const cart = useSelector((state) => state.cart);
+  
   const getTotalQuantity = () => {
       return cart.reduce(
           (accumulator, item) => accumulator + item.quantity,

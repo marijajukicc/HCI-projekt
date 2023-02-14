@@ -8,7 +8,7 @@ const Background = ({ children }) => {
         backgroundPosition: "center",
         height: "15rem",
       }}
-      className="flex justify-evenly items-center w-full"
+      className="flex md:flex-row flex-col justify-evenly items-center w-full"
     >
       {children}
     </div>

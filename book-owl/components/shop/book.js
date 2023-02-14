@@ -11,7 +11,7 @@ const Book = ({...item}) => {
     const [clicked, setClicked] = useState(false);
 
     return (
-        <div className="flex items-center flex-col gap-3">
+        <div className="flex flex-col">
             <Link href={`/shop/${item.isbn}`} key={item.isbn} passHref>
                 <Image 
                     src={'https:' + item.coverImage.fields.file.url}
@@ -21,8 +21,8 @@ const Book = ({...item}) => {
                     className="hover:scale-105 w-75 h-50 object-cover rounded-md"
                 />
             </Link>
-            <p className="mt-2 text-2xl text-shingle-fawn font-bold">{item.title}</p>
-            <p className="mt-2 mb-10 text-sm text-light-brown">{item.author}</p>
+            <p className="mt-2 mb-2 text-2xl text-shingle-fawn font-bold">{item.title}</p>
+            <p className="mb-8 text-sm text-light-brown">{item.author}</p>
             <div className="mt-auto">
                 {item.sale &&
                     <>
@@ -33,7 +33,8 @@ const Book = ({...item}) => {
                 {!item.sale &&
                     <p className="text-2xl text-shingle-fawn-dark font-semibold">${item.price}</p>
                 }
-                    <button onClick={() => {dispatch(addToCart(item)); setClicked(true); setTimeout(() => {setClicked(false);}, 2000);}} className={`w-full mt-6 flex justify-evenly items-center  bg-light-brown/[.95] rounded-full p-3 uppercase text-base hover:bg-light-brown hover:ring hover:ring-shingle-fawn hover:ring-offset-2 text-shingle-fawn-dark
+                    <button onClick={() => {dispatch(addToCart(item)); setClicked(true); setTimeout(() => {setClicked(false);}, 2000);}} 
+                        className={`w-full mt-6 flex justify-evenly items-center bg-light-brown/[.95] rounded-full p-3 uppercase text-sm md:text-base hover:bg-light-brown hover:ring hover:ring-shingle-fawn hover:ring-offset-2 text-shingle-fawn-dark
                         ${clicked ? 'hidden' : ''}`}>
                         <Image 
                             src={Cart4}
