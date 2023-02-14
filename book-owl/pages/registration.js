@@ -45,8 +45,8 @@ const Registration = () => {
             <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         </Head>
         <main style={{background: `url(${bg.src})`, backgroundPositionX: 'center'}} className="relative h-screen w-full">
-            <div className="absolute top-1/2 left-1/2 m-0 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center gap-1 lg:gap-3 p-10">
-                <Link href="/" passHref className="md:w-[54vh] w-[48vh] mb-1">
+            <div className="absolute top-1/2 left-1/2 m-0 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center gap-1 lg:gap-3 ">
+                <Link href="/" passHref className="md:w-[54vh] w-[40vh] mb-1">
                     <Image
                         src={BackArrow}
                         width={35}
