@@ -1,11 +1,13 @@
 import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
 import useAuth from '../../hooks/useAuth';
 
 import { navigationItems } from "../../constants/navbar";
+import DropDown from './dropDown';
 import Cart from "../../public/shopping-cart.png";
 import CartActive from "../../public/shopping-cart2.png";
 import Login from '../../public/account.png';
@@ -16,7 +18,13 @@ const NavBar = () => {
     const currentPage = router.pathname;
     const { token } = useAuth();
     const cart = useSelector((state) => state.cart);
+    const [isClicked, setIsClicked] = useState(false);
 
+    const handleButtonClick = (e) => {
+        e.preventDefault();
+        setIsClicked(!isClicked);
+    };
+    
     const getTotalQuantity = () => {
         return cart.reduce(
             (accumulator, item) => accumulator + item.quantity,
@@ -25,7 +33,7 @@ const NavBar = () => {
     }
     
     return (
-        <nav className='hidden lg:flex-grow md:flex md:justify-between gap-8 text-shingle-fawn '>
+        <nav className='hidden  lg:flex-grow md:flex md:justify-between gap-8 text-shingle-fawn '>
             <div className='flex py-0.5 list-none'>
                 {navigationItems.map(({ label, path }) => (
                     <Link href={path} key={label} passHref>
@@ -52,15 +60,17 @@ const NavBar = () => {
                     </Link>
                     <span className='text-xl text-shingle-fawn'>{getTotalQuantity()}</span>
                 </span>
-                <Link href={token ? "/self" : "/login"} key="login" passHref>
+                <div>
                     <Image
                         src={ token ? LoginActive : Login }
                         width={30}
                         height={30}
                         alt="Login"
-                        className={`hover:scale-110 ${ currentPage === '/self'  ? 'scale-110 outline outline-2 outline-offset-2 rounded-md outline-shingle-fawn' : '' }`}
+                        className={`hover:cursor-pointer hover:scale-110 ${ currentPage === '/self'  ? 'scale-110 outline outline-2 outline-offset-2 rounded-md outline-shingle-fawn' : '' }`}
+                        onClick={handleButtonClick}
                     />
-                </Link>
+                    {isClicked && <DropDown />}
+                </div>
             </div>
         </nav>
     );
