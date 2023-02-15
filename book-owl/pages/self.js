@@ -12,7 +12,7 @@ const Self = () => {
 
     return (
         <HeaderFooterLayout title="BookOwl / Self">
-            
+            <head><meta name="description" content="This is the page where you end up after you logged in."></meta></head>
             <Background>
                 <p className="uppercase text-3xl text-center text-shingle-fawn">Self</p>
             </Background>

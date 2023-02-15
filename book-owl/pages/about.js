@@ -9,6 +9,7 @@ import LogoImg from '../public/big-logo.png';
 const About = () => {
     return (
         <HeaderFooterLayout title="BookOwl / About ">
+            <head><meta name="description" content="This is the page to get to know us. We are a book selling company which also has blog posts."></meta></head>
             <Background>
                 <Image
                     src={LogoImg}

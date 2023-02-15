@@ -38,6 +38,7 @@ const Login = () => {
         <Head>
             <title>BookOwl / Login</title>
             <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+            <meta name="description" content="This is the page where you log in or sign in if you have an account."></meta>
         </Head>
         <main style={{background: `url(${bg.src})`,backgroundPositionX: 'center'}} className="relative h-screen w-full">
             <div className="absolute top-1/2 left-1/2 m-0 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center gap-8 lg:gap-10 p-5 sm:p-10">
