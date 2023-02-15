@@ -58,7 +58,7 @@ const BookDetails = (props) => {
                                     {!item.sale && 
                                         <p className="w-full lg:w-1/3 md:col-start-2 text-2xl text-shingle-fawn-dark font-semibold">${item.price}</p>
                                     }
-+                                        <div className="mb-10 w-full lg:w-1/3 mt-8 flex justify-between px-5 py-2 text-shingle-fawn-dark font-bold rounded-full bg-gray">
+                                    <div className="mb-10 w-full lg:w-1/3 mt-8 flex justify-between px-5 py-2 text-shingle-fawn-dark font-bold rounded-full bg-gray">
                                             <button onClick={() => updateQuantity(-1)} className="hover:scale-150">&lt;</button>
                                             <p>{quantity}</p>
                                             <button onClick={() => updateQuantity(+1)} className="hover:scale-150">&gt;</button>
