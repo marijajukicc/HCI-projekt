@@ -39,12 +39,12 @@ const Home = (props) => {
   };
   return (
     <>
+        <meta name="description" content="This is the main page where you can find books which are on sale or bestsellers, as well as popular blog posts."></meta>
         <HeaderFooterLayout title="BookOwl / Home">
             <Background>
               <p className="uppercase font-bold text-xl md:text-3xl text-[#1e1e1e]/[.25]">Bored?</p>
               <p className="uppercase text-xl md:text-3xl text-center text-shingle-fawn">explore our page and <br></br> be entertained :)</p>
             </Background>
-            <meta name="description" content="This is the main page where you can find books which are on sale or bestsellers, as well as popular blog posts."></meta>
             {/* Mobile version */}
             <div className="sm:hidden relative z-0 mt-14">
               <p className='text-center font-bold uppercase text-3xl text-shingle-fawn mb-8'>Books on sale</p>
