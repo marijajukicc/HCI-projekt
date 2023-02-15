@@ -18,8 +18,7 @@ const Blog = (props) => {
     };
 
     return (
-        <HeaderFooterLayout title="BookOwl / Blog">
-            <head><meta name="description" content="This is the blogs page. We have wide variety of blog themes. We talk about best books to read, new releases etc..."></meta></head>
+        <HeaderFooterLayout title="BookOwl / Blog" description="This is the blogs page. We have wide variety of blog themes. We talk about best books to read, new releases etc...">
             <div 
                 style={{
                     background: `url(${bg.src})`,

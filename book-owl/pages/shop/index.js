@@ -74,8 +74,7 @@ const Shop = (props) => {
     }
     
     return (
-        <HeaderFooterLayout title="BookOwl / Shop">
-            <head><meta name="description" content="This is the shop page. Here you can see all the books we have. We have wide range of books including Teen and YA, Social Science..."></meta></head>
+        <HeaderFooterLayout title="BookOwl / Shop" description="This is the shop page. Here you can see all the books we have. We have wide range of books including Teen and YA, Social Science...">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-y-4 md:gap-x-8 md:gap-y-8 p-1 sm:p-2 md:p-16">
                 <main className="flex items-center justify-center mb-5 md:hidden ">
                     <div className="">

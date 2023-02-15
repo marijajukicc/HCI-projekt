@@ -28,7 +28,7 @@ const BookDetails = (props) => {
 
     return (
         
-        <HeaderFooterLayout title="BookOwl / Shop">
+        <HeaderFooterLayout title="BookOwl / Shop" description="This is the page of book itself. You can read buy and find more information about book here.">
             <div className="p-8 mx-2 md:p-10 md:mx-20">
                 {fields?.map((item, index) => {
                     if(item.isbn == bookID) {

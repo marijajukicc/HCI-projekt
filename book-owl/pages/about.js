@@ -8,7 +8,7 @@ import LogoImg from '../public/big-logo.png';
 
 const About = () => {
     return (
-        <HeaderFooterLayout title="BookOwl / About ">
+        <HeaderFooterLayout title="BookOwl / About" description="This is page where you can subscripe to newsletter and get information about website such as phone number, email, location and working hours.">
             <Background>
                 <Image
                     src={LogoImg}
