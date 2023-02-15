@@ -30,10 +30,10 @@ const Cart = () => {
     }
 
     return (
-        <div className="flex flex-wrap md:grid grid-col-2 my-40 mx-4">
-            <div className="col-start-1 grid grid-cols-2 px-20 gap-14 items-center">
+        <div className="flex flex-wrap md:grid grid-col-2 my-10 sm:my-20 md:my-30 lg:my-40  mx-4">
+            <div className="col-start-1 grid grid-cols-1 md:grid-cols-2 px-20 gap-14  items-center">
                 {cart.map((item) => (
-                    <div className="flex gap-x-5" key={item.isbn}>
+                    <div className="flex flex-wrap gap-x-5" key={item.isbn}>
                         <Image 
                         src={'https:' + item.coverImage.fields.file.url}
                         width={200}
@@ -65,7 +65,7 @@ const Cart = () => {
                 ))}
             </div>
                       
-            <aside className="col-start-2 border-l-2 border-shingle-fawn pl-5">
+            <aside className="col-start-2 md:border-l-2 border-shingle-fawn pl-5">
                 <div className="sticky top-20 flex flex-col gap-5 text-shingle-fawn-dark">
                     <Image
                         src={Logo}
