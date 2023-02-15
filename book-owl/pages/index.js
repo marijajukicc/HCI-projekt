@@ -39,7 +39,7 @@ const Home = (props) => {
   };
   return (
     <>
-        <meta name="description" content="This is the main page where you can find books which are on sale or bestsellers, as well as popular blog posts."></meta>
+        <meta name="description" content="This is the main home page where you can find books which are on sale or bestsellers, as well as popular blog posts."></meta>
         <HeaderFooterLayout title="BookOwl / Home">
             <Background>
               <p className="uppercase font-bold text-xl md:text-3xl text-[#1e1e1e]/[.25]">Bored?</p>
