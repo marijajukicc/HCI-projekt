@@ -16,6 +16,15 @@ const BookDetails = (props) => {
     const bookID = router.query.isbn;
     const dispatch = useDispatch();
     const [clicked, setClicked] = useState(false);
+    const [quantity, setQuantity]=useState(1);
+
+    const updateQuantity = (value) => {
+        if(quantity === 1 && value === -1) {
+            setQuantity(1);
+        } else {
+            setQuantity((prevState) => prevState + value);
+        }
+    };
 
     return (
         <HeaderFooterLayout title="BookOwl / Shop">
@@ -49,6 +58,11 @@ const BookDetails = (props) => {
                                     {!item.sale && 
                                         <p className="w-full lg:w-1/3 md:col-start-2 text-2xl text-shingle-fawn-dark font-semibold">${item.price}</p>
                                     }
++                                        <div className="mb-10 w-full lg:w-1/3 mt-8 flex justify-between px-5 py-2 text-shingle-fawn-dark font-bold rounded-full bg-gray">
+                                            <button onClick={() => updateQuantity(-1)} className="hover:scale-150">&lt;</button>
+                                            <p>{quantity}</p>
+                                            <button onClick={() => updateQuantity(+1)} className="hover:scale-150">&gt;</button>
+                                        </div>
                                         <div className="flex lg:flex-row flex-col items-center gap-4 m-8 md:m-0 text-shingle-fawn-dark">
                                             <button onClick={() => {dispatch(addToCart(item)); setClicked(true); setTimeout(() => {setClicked(false);}, 2000);}}  className={`whitespace-nowrap col-start-2 w-full lg:w-1/3 flex justify-evenly items-center  bg-light-brown rounded-full p-3 uppercase text-base hover:ring hover:ring-shingle-fawn hover:ring-offset-2 shadow-xl shadow-shingle-fawn-dark  
                                                 ${clicked ? 'animate-wiggle shadow-none' : ''}`}>
