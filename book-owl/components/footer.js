@@ -11,15 +11,15 @@ function Footer() {
 		<>
 			<div className="bg-swamp-green h-1/2 w-full flex md:flex-row flex-col justify-around items-start p-20 text-shingle-fawn">
 				<div className="p-5 ">
-					<ul>
                         <Link href="/">
-                            <p id="footer" className='font-pacifico text-shingle-fawn text-4xl'>BOOK <br></br> OWL</p>
+							<ul>
+                            	<li id="footer" className='font-pacifico text-shingle-fawn text-4xl'>BOOK <br></br> OWL</li>
+							</ul>
                         </Link>
-					</ul>
 				</div>
 				<div className="p-5">
 					<ul>
-						<p className="font-bold text-2xl pb-5">Help & Information</p>
+						<li className="font-bold text-2xl pb-5">Help & Information</li>
 						<li className="text-lg pb-2 font-bold hover:underline cursor-pointer">
 							FAQ
 						</li>
@@ -36,7 +36,7 @@ function Footer() {
 				</div>
 				<div className="p-5">
 					<ul>
-						<p className="font-bold text-2xl pb-5">Contact Us</p>
+						<li className="font-bold text-2xl pb-5">Contact Us</li>
 						<li className="text-lg pb-2 font-bold hover:underline cursor-pointer">
 							About Us
 						</li>
@@ -56,8 +56,8 @@ function Footer() {
 				</div>
 				<div className="p-5">
 					<ul>
-                    <p className="text-2xl font-bold mb-5">Follow us</p>
-                        <div className="flex gap-5">
+                    <li className="text-2xl font-bold mb-5">Follow us</li>
+                        <li className="flex gap-5">
                             <Link href="https://www.facebook.com/" className="hover:shadow-xl hover:shadow-shingle-fawn-dark rounded-full">
                                 <Image 
                                     src={Facebook}
@@ -90,7 +90,7 @@ function Footer() {
                                     alt="Email"
                                 />
                             </Link>
-                        </div>
+                        </li>
 					</ul>
 				</div>
 			</div>

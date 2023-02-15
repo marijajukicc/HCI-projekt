@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Della%20Respira');
-@import url('https://fonts.googleapis.com/css?family=Pacifico');
+@import url('https://fonts.googleapis.com/css?family=Della%20Respira&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
 
 
 @tailwind base;
@@ -11,6 +11,7 @@ body {
     padding: 0;
     margin: 0;
     font-family: Della Respira;
+    font-display: swap;
 }
 
 a {

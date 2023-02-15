@@ -34,7 +34,7 @@ const NavBar = () => {
     
     return (
         <nav className='hidden  lg:flex-grow md:flex md:justify-between gap-8 text-shingle-fawn '>
-            <div className='flex py-0.5 list-none'>
+            <ul className='flex py-0.5 list-none'>
                 {navigationItems.map(({ label, path }) => (
                     <Link href={path} key={label} passHref>
                         <li
@@ -47,7 +47,7 @@ const NavBar = () => {
                         </li>
                     </Link>
                  ))}
-            </div>
+            </ul>
             <div className='inline-flex gap-5 items-center'>
                 <span className={`flex gap-1 items-center hover:scale-110 ${ currentPage === '/shoppingCart' ? 'scale-110  rounded-md border-b-4 border-shingle-fawn' : '' }`}>
                     <Link href="/shoppingCart" key="shoppingCart" passHref>
