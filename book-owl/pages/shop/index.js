@@ -75,12 +75,8 @@ const Shop = (props) => {
     
     return (
         <HeaderFooterLayout title="BookOwl / Shop">
-            <Background>
-                <p className="uppercase text-3xl text-shingle-fawn text-center">Shop</p>
-            </Background>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-8 p-0 sm:p-2 md:p-20">
-                <main className="flex items-center justify-center md:hidden ">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-y-4 md:gap-x-8 md:gap-y-8 p-1 sm:p-2 md:p-16">
+                <main className="flex items-center justify-center mb-5 md:hidden ">
                     <div className="">
                         <SearchBar handleChange={handleChange}/>
                         <Filters handleSorting={handleSorting} handlePrice={handlePrice} handleRemove={handleRemove} handleSale={handleSale}
@@ -95,7 +91,7 @@ const Shop = (props) => {
                     </div>
                 </aside>
 
-                <div className="col-start-1 col-end-3 md:col-start-2 md:col-end-5 lg:col-start-2 lg:col-end-6">
+                <div className="col-start-1 col-end-3 md:col-start-2 md:col-end-5 lg:col-start-2 lg:col-end-6 mb-8">
                     <ScrollContainer className="scroll-container flex ml-10 mb-10 gap-2 md:gap-6 flex-nowrap scrollbar-hide text-shingle-fawn-dark select-none whitespace-nowrap overflow-x-auto last:mr-auto">
                         {filter.categories.items.map((option) => (
                             <button onClick={(e) => handleClick(option)} key={option.title} className=
@@ -105,7 +101,7 @@ const Shop = (props) => {
                         ))}
                     </ScrollContainer>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-0 md:gap-12 gap-y-12 md:gap-y-20 ml-10 mt-16">                  
+                    <div className="mx-16 sm:mx-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-0 md:gap-12 gap-y-12 md:gap-y-20 md:ml-10 mt-16">                  
                         {filtered?.map((item) => {
                             if(item.category === category) {
                                 return (
