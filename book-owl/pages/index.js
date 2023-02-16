@@ -211,7 +211,7 @@ const Home = (props) => {
                 </Link>
             </div>
 
-            <button className="fixed bottom-0 right-0 p-4 text-shingle-fawn-dark bg-shingle-fawn/[.4] rounded-full m-2" onClick={scrollToTop}>
+            <button id="Scroll-top" className="fixed bottom-0 right-0 p-4 text-shingle-fawn-dark bg-shingle-fawn/[.4] rounded-full m-2" onClick={scrollToTop}>
               <FaArrowUp />
             </button>
 
