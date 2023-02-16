@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import ScrollContainer from "react-indiana-drag-scroll";
 
 import HeaderFooterLayout from "../../layouts/HeaderFooterLayout";
-import Background from "../../layouts/background";
 
 import SearchBar from '../../components/shop/searchbar';
 import Filters from '../../components/shop/filters';
 import Book from "../../components/shop/book";
+import { FaArrowUp } from "react-icons/fa";
 
 import { getBooks } from "../api/ContentfulAPI";
 
@@ -29,6 +29,13 @@ const Shop = (props) => {
     const [saleOption, setSaleOption] = useState("");
 
     const [filtered, setFiltered] = useState(fields);
+
+    const isBrowser = () => typeof window !== 'undefined'; 
+
+    function scrollToTop() {
+        if (!isBrowser()) return;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 
     useEffect(() => {
         setFiltered(searchProducts(query, fields));
@@ -119,6 +126,10 @@ const Shop = (props) => {
                 </div>
                 
             </div>
+
+            <button className="fixed bottom-0 right-0 p-4 text-shingle-fawn-dark bg-shingle-fawn/[.4] rounded-full m-2" onClick={scrollToTop}>
+              <FaArrowUp />
+            </button>
 
         </HeaderFooterLayout>
     );

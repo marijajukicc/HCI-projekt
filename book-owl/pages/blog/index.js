@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import HeaderFooterLayout from "../../layouts/HeaderFooterLayout";
 import LeadCard from "../../components/blog/leadCard";
 import PostThird from "../../components/blog/postThird";
@@ -6,11 +8,18 @@ import PostTwo from "../../components/blog/postTwo";
 import { getBlogs } from "../api/ContentfulAPI";
 
 import bg from '../../public/background.webp';
-import { useState } from "react";
+import { FaArrowUp } from "react-icons/fa";
 
 const Blog = (props) => {
     const { fields } = props;
     const [isClicked, setIsClicked] = useState(false);
+
+    const isBrowser = () => typeof window !== 'undefined'; 
+
+    function scrollToTop() {
+        if (!isBrowser()) return;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 
     const handleClick = (e) => {
         e.preventDefault();
@@ -71,7 +80,10 @@ const Blog = (props) => {
                     </button>
                 </div>
             </div>
-                
+
+            <button className="fixed bottom-0 right-0 p-4 text-shingle-fawn-dark bg-shingle-fawn/[.4] rounded-full m-2" onClick={scrollToTop}>
+              <FaArrowUp />
+            </button>
 
         </HeaderFooterLayout>
     );

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 import { BsPen } from 'react-icons/bs';
+import { FaArrowUp } from "react-icons/fa";
 
 import HeaderFooterLayout from "../../layouts/HeaderFooterLayout";
 import { getBlogs } from "../api/ContentfulAPI";
@@ -14,6 +15,14 @@ const Post = (props) => {
     const {fields} = props;
     const router = useRouter();
     const postID = router.query.id;
+
+    const isBrowser = () => typeof window !== 'undefined'; 
+
+    function scrollToTop() {
+        if (!isBrowser()) return;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
 
     const Text = ({ children }) => <p className="py-3 indent-5">{children}</p>;
     const ListOl = ({ children }) => <ol className="list-decimal py-6">{children}</ol>;
@@ -95,6 +104,10 @@ const Post = (props) => {
                     }
                 }
                 )}
+
+            <button className="fixed bottom-0 right-0 p-4 text-shingle-fawn-dark bg-shingle-fawn/[.4] rounded-full m-2" onClick={scrollToTop}>
+              <FaArrowUp />
+            </button>
 
             
         </HeaderFooterLayout>

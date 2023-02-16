@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Swipe from "react-easy-swipe";
 import { useState } from "react";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
+import { FaArrowUp } from "react-icons/fa";
 
 import { getBooks } from './api/ContentfulAPI';
 import { getBlogs } from './api/ContentfulAPI';
@@ -16,6 +17,13 @@ import PostThird from '../components/blog/postThird';
 const Home = (props) => {
   const option = false;
   const [currentSlideS, setCurrentSlideS] = useState(0);
+
+  const isBrowser = () => typeof window !== 'undefined'; 
+
+  function scrollToTop() {
+    if (!isBrowser()) return;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 
   const handleNextSlideS = () => {
     let newSlideS = currentSlideS === props.books.filter(book => book.sale).length - 1 ? 0 : currentSlideS + 1;
@@ -202,6 +210,10 @@ const Home = (props) => {
                   <button className='animate-[wiggle_1s_ease-in-out_infinite] hover:animate-none bg-light-brown/[.67] rounded-full px-7 py-4 uppercase text-xl hover:bg-light-brown hover:ring hover:ring-shingle-fawn hover:ring-offset-2 text-shingle-fawn-dark'>Discover more</button>
                 </Link>
             </div>
+
+            <button className="fixed bottom-0 right-0 p-4 text-shingle-fawn-dark bg-shingle-fawn/[.4] rounded-full m-2" onClick={scrollToTop}>
+              <FaArrowUp />
+            </button>
 
         </HeaderFooterLayout>
     </>
