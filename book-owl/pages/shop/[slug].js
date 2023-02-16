@@ -13,7 +13,7 @@ import Package from "../../public/package.png";
 const BookDetails = (props) => {
     const { fields } = props;
     const router = useRouter();
-    const bookID = router.query.isbn;
+    const bookSlug = router.query.slug;
     const dispatch = useDispatch();
     const [clicked, setClicked] = useState(false);
     const [quantity, setQuantity]=useState(1);
@@ -31,9 +31,9 @@ const BookDetails = (props) => {
         <HeaderFooterLayout title="BookOwl / Shop" description="This is the page of book itself. You can read buy and find more information about book here.">
             <div className="p-8 mx-2 md:p-10 md:mx-20">
                 {fields?.map((item, index) => {
-                    if(item.isbn == bookID) {
+                    if(item.slug == bookSlug) {
                         return (
-                            <div key={bookID}>
+                            <div key={item.isbn}>
                                 <Link href="/shop" passHref>
                                     <p className="text-xl md:text-lg text-light-brown mb-8">Category {">"} {item.category}</p>
                                 </Link>

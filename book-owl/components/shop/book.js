@@ -12,7 +12,7 @@ const Book = ({...item}) => {
 
     return (
         <div className="flex flex-col">
-            <Link href={`/shop/${item.isbn}`} key={item.isbn} passHref>
+            <Link href={`/shop/${item.slug}`} key={item.isbn} passHref>
                 <source type="image/webp" />
                     <Image 
                         src={'https:' + item.coverImage.fields.file.url}
@@ -20,7 +20,7 @@ const Book = ({...item}) => {
                         height={200}
                         alt="Book"
                         className="hover:scale-105 w-75 h-50 object-cover rounded-md"
-                        />
+                    />
             </Link>
             <p className="mt-2 mb-2 text-2xl text-shingle-fawn font-bold">{item.title}</p>
             <p className="mb-8 text-sm text-light-brown">{item.author}</p>
