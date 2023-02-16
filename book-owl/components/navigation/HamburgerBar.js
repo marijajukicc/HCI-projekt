@@ -74,7 +74,7 @@ const HamburgerBar = () => {
                                 <li
                                     key={label}
                                     className={`focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500 px-2 hover:font-bold cursor-pointer ${
-                                        currentPage === path || (currentPage === '/shop/[slug]' && path === "/shop") || (currentPage === '/blog/[id]' && path === "/blog") ? 'font-bold underline decoration-2 scale-110' : ''
+                                        currentPage === path || (currentPage === '/shop/[slug]' && path === "/shop") || (currentPage === '/blog/[slug]' && path === "/blog") ? 'font-bold underline decoration-2 scale-110' : ''
                                     }`}
                                     >
                                     {label}

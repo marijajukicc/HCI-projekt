@@ -14,7 +14,7 @@ import PostThird from "../../components/blog/postThird";
 const Post = (props) => {
     const {fields} = props;
     const router = useRouter();
-    const postID = router.query.id;
+    const postSlug = router.query.slug;
 
     const isBrowser = () => typeof window !== 'undefined'; 
 
@@ -42,7 +42,7 @@ const Post = (props) => {
     return (
         <HeaderFooterLayout title="BookOwl / Blog" description="This is the page of blog. You can read blog post about books on here.">            
             {fields?.map((item, index) => {
-                if(item.id == postID) {
+                if(item.slug == postSlug) {
                     if(index < 16) {
                         var nextI = fields[index + 1];
                         var nextII = fields[index + 2];

@@ -5,7 +5,7 @@ const PostHalf = ({...item}) => {
     return (
         <div className="w-full md:w-1/2 p-6 flex flex-col flex-grow flex-shrink">
             <div className="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
-                <Link href={`/blog/${item.id}`} key={item.id} passHref className="flex flex-wrap no-underline hover:no-underline">
+                <Link href={`/blog/${item.slug}`} key={item.id} passHref className="flex flex-wrap no-underline hover:no-underline">
                     <Image 
                         src={'https:' + item.image.fields.file.url}
                         width={0}
@@ -24,7 +24,7 @@ const PostHalf = ({...item}) => {
             <div className="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6">
                 <div className="flex items-center justify-between">
                     <p className="text-light-brown/[.80] text-xs md:text-sm">by {item.author}</p>
-                    <Link href={`/blog/${item.id}`} key={item.id} passHref>
+                    <Link href={`/blog/${item.slug}`} key={item.id} passHref>
                         <button className="font-extrabold text-xl bg-swamp-green/[.7] rounded-full px-4 py-2 hover:bg-swamp-green hover:shadow-md hover:shadow-shingle-fawn-dark text-shingle-fawn-dark">
                             &gt;
                         </button>
